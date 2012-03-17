@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[博客-SPRABBIT-超科學兔耳中隊]]></title>
-  <link href="http://denjones.github.com/atom.xml" rel="self"/>
-  <link href="http://denjones.github.com/"/>
-  <updated>2012-03-17T17:03:17+08:00</updated>
-  <id>http://denjones.github.com/</id>
+  <link href="http://blog.sprabbit.com/atom.xml" rel="self"/>
+  <link href="http://blog.sprabbit.com/"/>
+  <updated>2012-03-17T17:20:52+08:00</updated>
+  <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火霧宗師]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[New Blog]]></title>
-    <link href="http://denjones.github.com/blog/2012/03/17/new-blog/"/>
+    <link href="http://blog.sprabbit.com/blog/2012/03/17/new-blog/"/>
     <updated>2012-03-17T13:22:00+08:00</updated>
-    <id>http://denjones.github.com/blog/2012/03/17/new-blog</id>
+    <id>http://blog.sprabbit.com/blog/2012/03/17/new-blog</id>
     <content type="html"><![CDATA[
 ]]></content>
   </entry>

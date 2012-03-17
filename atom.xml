@@ -4,7 +4,7 @@
   <title><![CDATA[博客-SPRABBIT-超科學兔耳中隊]]></title>
   <link href="http://blog.sprabbit.com/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2012-03-17T23:30:29+08:00</updated>
+  <updated>2012-03-18T01:54:08+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火霧宗師]]></name>
@@ -16,17 +16,9 @@
   <entry>
     <title type="html"><![CDATA[New Blog]]></title>
     <link href="http://blog.sprabbit.com/blog/2012/03/17/new-blog/"/>
-    <updated>2012-03-17T00:00:00+08:00</updated>
+    <updated>2012-03-17T13:22:00+08:00</updated>
     <id>http://blog.sprabbit.com/blog/2012/03/17/new-blog</id>
-    <content type="html"><![CDATA[<p>﻿&#8212;
-layout: post
-title: &#8220;新博客&#8221;
-date: 2012-03-17 13:22
-comments: true</p>
-
-<h2>categories: 雜談</h2>
-
-<p>嘗試書寫博客內容。</p>
+    <content type="html"><![CDATA[<p>嘗試書寫內容。</p>
 ]]></content>
   </entry>
   

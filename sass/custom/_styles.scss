@@ -1,0 +1,16 @@
+// This File is imported last, and will override other styles in the cascade
+// Add styles here to make changes without digging in too much
+
+body{
+	width: 1000px;
+}
+
+body > header{
+	background: url("/images/header1.jpg") no-repeat scroll 0 0 #000;
+	height: 220px;
+}
+
+body > header h2{
+	padding: 50px 0 0 434px;
+	font-size: 0.6em;
+}

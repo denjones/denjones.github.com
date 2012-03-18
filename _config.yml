@@ -1,19 +1,21 @@
+# encoding: utf-8
+
 # ----------------------- #
 #      Main Configs       #
 # ----------------------- #
 
-url: http://denjones.github.com
+url: http://blog.sprabbit.com
 title: 博客-SPRABBIT-超科學兔耳中隊
 subtitle: 中文同人社團
 author: 火霧宗師
-simple_search: http://google.com/search
+simple_search: http://www.google.com/search
 description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 # Additionally, %o will give you the ordinal representation of the day
-date_format: "%y年 %m月 %d日"
+date_format: "%y年%m月%d日"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
@@ -50,6 +52,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
 # blog_index_asides:
+# post_asides:
+# page_asides:
+
+blog_index_asides:
+ - custom/asides/about.html
+ - asides/recent_posts.html
+ 
 # post_asides:
 # page_asides:
 

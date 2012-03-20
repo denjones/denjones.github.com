@@ -6,7 +6,7 @@ $header-padding-top: 0;
 $header-padding-bottom: 0;
 $header-height: 295px;
 
-//$max-width: 1350px;
+$max-width: 1000px;
 //$indented-lists: true;
 
 // Padding used for layout margins
@@ -16,7 +16,7 @@ $header-height: 295px;
 //$pad-wide: 55px;
 
 // Sidebar widths used in media queries
-//$sidebar-width-medium: 240px;
-//$sidebar-pad-medium: 15px;
-//$sidebar-pad-wide: 20px;
-//$sidebar-width-wide: 300px;
+$sidebar-width-medium: 300px;
+$sidebar-pad-medium: 20px;
+$sidebar-pad-wide: 20px;
+$sidebar-width-wide: 300px;

@@ -7,10 +7,12 @@ body{
 
 body > header{
 	background: url("/images/header1.jpg") no-repeat scroll 0 0 #000;
+	background-position: right;
 	height: 292px;
+	padding: 0;
 }
 
 body > header h2{
 	font-size: 12px;
-    	padding: 88px 0 0 455px;
+    padding: 90px 0 0 495px;
 }

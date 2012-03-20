@@ -5,7 +5,9 @@ layout: post
 title: "超科學兔耳中隊的博客"
 date: 2012-03-17 13:22
 comments: true
-categories: 雜談
+categories: 
+ - 雜談{talk}
+ - 社團{circle}
 ---
 
 嘗試書寫內容。

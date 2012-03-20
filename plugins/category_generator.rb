@@ -1,5 +1,24 @@
 # encoding: utf-8
+# 
+# Modified by KenJ(@denjones) 2012-3-20
+# Add Unicode support to the generator
+# Use case:
+#    When marking category to the achieve, change the style from 
+#    "category" to "category_name{category_dir}" like this:
 #
+#		# One category
+#       categories: Sass{sass}
+#		
+#		# Multiple categories example 
+#		categories:
+#		- CSS3{css3}
+#		- Sass{sass}
+#		- Media Queries{media_queries}
+#
+#	Notice that category_dir must be valid chars in ascii. And the mutiple form "categories:[,]"
+#	is no longer supported.	
+#
+# Original source from:
 # Jekyll category page generator.
 # http://recursive-design.com/projects/jekyll-plugins/
 #
@@ -39,11 +58,11 @@ module Jekyll
       self.read_yaml(File.join(base, '_layouts'), 'category_index.html')
       self.data['category']    = category
       # Set the title for this page.
-      title_prefix             = site.config['category_title_prefix'] || '文章分類: '
-      self.data['title']       = "#{title_prefix}#{category}"
+      title_prefix             = site.config['category_title_prefix'] || 'Category: '
+      self.data['title']       = "#{title_prefix}#{category[/[^{]*/]}"
       # Set the meta-description for this page.
-      meta_description_prefix  = site.config['category_meta_description_prefix'] || '文章分類: '
-      self.data['description'] = "#{meta_description_prefix}#{category}"
+      meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category: '
+      self.data['description'] = "#{meta_description_prefix}#{category[/[^{]*/]}"
     end
 
   end
@@ -66,11 +85,11 @@ module Jekyll
       self.read_yaml(File.join(base, '_includes/custom'), 'category_feed.xml')
       self.data['category']    = category
       # Set the title for this page.
-      title_prefix             = site.config['category_title_prefix'] || '文章分類: '
-      self.data['title']       = "#{title_prefix}#{category}"
+      title_prefix             = site.config['category_title_prefix'] || 'Category: '
+      self.data['title']       = "#{title_prefix}#{category[/[^{]*/]}"
       # Set the meta-description for this page.
-      meta_description_prefix  = site.config['category_meta_description_prefix'] || '文章分類: '
-      self.data['description'] = "#{meta_description_prefix}#{category}"
+      meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category: '
+      self.data['description'] = "#{meta_description_prefix}#{category[/[^{]*/]}"
 
       # Set the correct feed URL.
       self.data['feed_url'] = "#{category_dir}/#{name}"
@@ -104,17 +123,13 @@ module Jekyll
     # Loops through the list of category pages and processes each one.
     def write_category_indexes
       if self.layouts.key? 'category_index'
-        dir = self.config['category_dir'] || 'categories'
-        self.categories.keys.each do |category|
-		  cate_dir =  category.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase
-          cate_dir = URI::escape(cate_dir)
-          cate_dir = URI::parse(cate_dir)
-          cate_dir = cate_dir.to_s
-          self.write_category_index(File.join(dir, cate_dir), category)
-        end
+		dir = self.config['category_dir'] || 'categories'
+	    self.categories.keys.each do |category|
+		  self.write_category_index(File.join(self.config['category_dir'], category[/(?<={)[^}]*/]), category)
+	    end       
 
       # Throw an exception if the layout couldn't be found.
-      else
+      else		
         throw "No 'category_index' layout found."
       end
     end
@@ -146,9 +161,9 @@ module Jekyll
     #
     def category_links(categories)
       dir = @context.registers[:site].config['category_dir']
-      categories = categories.sort!.map do |item|
-        "<a class='category' href='/#{dir}/#{item.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase}/'>#{item}</a>"
-      end
+       categories = categories.sort!.map do |item|
+		"<a class='category' href='/#{dir}/#{item[/(?<={)[^}]*/]}/'>#{item[/[^{]*/]}</a>"
+       end
 
       case categories.length
       when 0

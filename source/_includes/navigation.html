@@ -7,8 +7,13 @@
   {% if site.simple_search %}
 <form action="{{ site.simple_search }}" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+	{% if site.baidu_search %}
+	  <input type="hidden" name="wd" value="site:{{ site.url | shorthand_url }}" />
+      <input class="search" type="text" name="wd" results="0" placeholder="Search"/>
+	{% else %}
+	  <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
+	  <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+	{% endif %}
   </fieldset>
 </form>
   {% endif %}

@@ -8,7 +8,8 @@ url: http://blog.sprabbit.com
 title: 博客-SPRABBIT-超科學兔耳中隊
 subtitle: 中文同人社團
 author: 火霧宗師
-simple_search: http://www.google.com/search
+simple_search: http://www.baidu.com/s
+baidu_search: true
 description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
@@ -59,8 +60,9 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 blog_index_asides:
  - custom/asides/about.html
  - custom/asides/category_sidebar.html
- - custom/asides/weibo.html
  - asides/recent_posts.html
+ - custom/asides/latest_comments.html
+ - custom/asides/weibo.html 
  
 # post_asides:
 # page_asides:

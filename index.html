@@ -48,10 +48,12 @@
   
 </ul>
   
-<form action="http://www.google.com/search" method="get">
+<form action="http://www.baidu.com/s" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:blog.sprabbit.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+	
+	  <input type="hidden" name="wd" value="site:blog.sprabbit.com" />
+      <input class="search" type="text" name="wd" results="0" placeholder="Search"/>
+	
   </fieldset>
 </form>
   
@@ -121,8 +123,6 @@
 <li class='category'><a href='/blog/categories/talk/'>雜談 (1)</a></li>
 
   </ul>
-</section><section>
-	<iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=zh_tw&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=2&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1092094112&verifier=c4ba5282&dpc=1"></iframe>
 </section>﻿<section>
   <h1>最近投稿</h1>
   <ul id="recent_posts">
@@ -133,7 +133,17 @@
     
   </ul>
 </section>
-
+<!-- UY BEGIN -->
+<section>
+	<h1>最新評論</h1>
+	<!-- UY BEGIN -->
+	<div id="uyan_list_time_frame"></div>
+	<script type="text/javascript" id="UYScriptTime" src="http://v1.uyan.cc/js/iframe_time_list.js?UYUserId=1589291&rankType=time" async=""></script>
+	<!-- UY END -->
+</section>
+<section>
+	<iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=zh_tw&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=2&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1092094112&verifier=c4ba5282&dpc=1"></iframe>
+</section>
   
 </aside>
 

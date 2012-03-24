@@ -1,0 +1,64 @@
+---
+layout: post
+title: "關於在64位 Windows 7 中部署中文化的Octopress"
+date: 2012-03-23 15:52
+comments: true
+categories:  Octopress{octopress}
+---
+
+<blockquote>
+前言——可以在Linux環境下部署的話，還是盡可能在Linux下部署吧...
+</blockquote>
+
+真的不是開玩笑的，除非你像我一樣喜歡折騰。即使沒有Linux系統，能夠運行虛擬機的話，裝個虛擬的Linux系統也比直接在Windows中部署要簡單。
+
+一般的安裝步驟，在<a href="http://octopress.org/docs/">Octopress的文檔</a>中就有詳細的說明。而在Windows 7中部署，則可參考<a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/">Sinosmond的一篇文章</a>。
+具體的部署過程，我就不再重複了，只是在部署過程中有幾點是需要注意的。
+
+<h2>Ruby</h2>
+Octopress要求的Ruby的版本是1.9.2，最好使用該版本，因為不同版本間的函數庫有可能有出入，導致某些插件無法運行。這裡經過我的折騰，發現最新版1.9.3也是支持的，目前使用起來沒有什麽問題，但是需要將octopress根目錄下的“.rvmrc”文件中的一行改成
+```
+rvm use 1.9.3
+```
+
+<h2>分支</h2>
+若要使用github的個人page，建立repo時設置的名字必須是<code>&lt;yourname&gt;.github.com</code>，這裡<code>&lt;yourname&gt;</code>指的是你的github用戶名。這樣就可以讓你的頁面可以通過地址<code>http://&lt;yourname&gt;.github.com</code>，來訪問，如果不是這樣命名的話，你的github pages只能通過<code>github.com/&lt;reponame&gt;</code>訪問。
+使用<code>rake setup_github_pages</code>后，需要輸入github pages的repo地址，格式是<code>git@github.com:&lt;yourname&gt;/&lt;yourname&gt;.github.com.git</code>。
+
+使用<code>rake deploy</code>后，會將public文件夾下的所有文件拷貝到分支管理目錄_deploy文件夾中，也即是<code>&lt;yourname&gt;.github.com</code>的master分支目錄，然後上傳到github。如需對源代碼進行版本管理，需要另外建立source分支，並使用基本的git命令進行版本管理。
+
+<h2>中文化</h2>
+Octopress原本就是一個英文的框架，所以並沒有考慮很多使用其他語言會導致的問題。在嘗試中文化時，可能會遇到一些問題，還好這些問題都是能解決的。
+
+<h4>rake generate失敗</h4>
+如果直接使用原框架書寫中文博文，會在generate時失敗，提示出現非法UTF-8字符。首先要確認是否已經按照<a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/">Sinosmond的文章</a>配置，并設置好<code>LANG</code>等環境變量。如果仍出現該提示是因為原本的文件和生成的文件都是ASCII編碼的，如果直接輸入中文當然不能被識別。正確的做法是，若要在文件中書寫中文，首先將文件保存為<code>UTF-8 without BOM</code>編碼格式，然後再進行書寫。注意是<code>UTF-8 without BOM</code>而不是單純的<code>UTF-8</code>編碼，如果存成後者，在generate時不會出錯，但是生成頁面時會出現奇怪的現象。
+
+<h4>中文化文章分類</h4>
+如果直接使用中文的文章分類，在deploy后會發現，點擊文章分類后出現404錯誤。這是因為在在generate時，<code>category_generator.rb</code>插件將根據分類名稱生成分類頁面文件夾，而生成的文件夾是中文的，這在URL中是不允許的，因此無法定位到該頁面。這裡有<a href="http://geron.heroku.com/blog/2012/octo-cate-cn-spo">Geron的一篇文章</a>，介紹如何為octopress提供中文分類支持。但是我使用該方法后，並沒有成功應用。他提供的方法是直接將中文的文章分類轉換為url中的編碼(就是那種類似<code>%3d</code>這樣代表文字的編碼)。我使用後，確實令中文的文件夾變成了URL編碼的文件夾，這樣URL就跟目錄相一致。我在本地也測試成功，但是上傳github后依然出現404錯誤，並且考慮到這種方法會產生意義不明顯的URL，所以只好採用別的方法。這裡我想到了一個將分類名稱跟索引分離的方法。即是在一個分類變量中，同時儲存一個要顯示的名稱，還有一個要生成的路徑名，這一串字符作為分類索引，并令顯示與實現分離。
+
+<a href="https://github.com/denjones/denjones.github.com/commit/1d4f3b9433a4d77e31530c4d5f20611c9b9829e2#diff-1">這裡是我對<code>category_generator.rb</code>的修改</a>。
+
+修改后的分類格式變更為<code>&lt;分類顯示名稱&gt;{&lt;分類目錄名稱&gt;}</code>。比如說你想建立一個“隨筆”分類，你想讓分類頁面保存在一個叫“essay”的目錄中，你就要在文章markdown文件的頭部加入這樣的一行：
+```
+categories:  隨筆{essay}
+```
+如果希望歸類到多個分類，則需要這樣寫：
+```
+categories: 
+ - 隨筆{essay}
+ - Octopress{octopress}
+```
+
+除此之外，還要對一些用於顯示分類名稱的頁面做一些修改。把其中的<code>category</code>修改為<code>category[/[ ^ { ]*/]</code>，因為這裡的<code>category</code>已經變成了<code>&lt;分類顯示名稱&gt;{&lt;分類目錄名稱&gt;}</code>的格式，需要使用正則表達式取出<code>&lt;分類顯示名稱&gt;</code>這一部份用於顯示。
+
+我的octopress框架已經對相關部份做了處理，是一個比較完善的中文版本的Octopress，如果不喜歡折騰的可以直接在Github <a href="https://github.com/denjones/denjones.github.com/tree/source">clone本博客的框架的開源代碼</a>，然後再把其中的<code>_post</code>等目錄中的多餘文件去掉，修改為自己的框架進行使用。
+
+<h2>代碼高亮</h2>
+其實這個問題才是在64位Windows 7中部署Octopress會遇到的難題。Octopress已經自帶了代碼高亮(Highlighting)的相關插件，使用的是<a href="http://pygments.org/">pygments</a>這款插件。但是這款插件是用Python語言寫的，所以在本地運行時，需要有安裝Python環境。因此進入<a href="http://www.activestate.com/activepython/downloads">Python的主頁</a>下載安裝包進行安裝。好了，既然是64位的Windows7系統，那麼首選當然是ActivePython的64-bit版本。興高采烈的下載安裝后，發現問題來了，如果設置了代碼高亮的<code>lang</code>屬性，generate時會出現錯誤<code>Liquid error: Could not open library ‘.dll’: The specified module could not be found.</code>。查看錯誤消息發現在執行<code>rubypython.rb</code>中的函數時，產生了錯誤。Google后得知rubypython對Windows支持不好，因此需要手動修改其中的一些代碼。
+
+對ruby目錄下的<code>lib\ruby\gems\ruby 1.9.x>\gems\rubypython-0.5.x\lib\rubypython\pythonexec.rb</code><a href="https://github.com/bendoerr/rubypython/commit/1349aea1c6faa459c4be8474e4a7e878f08459c2">作此修改</a>。
+
+一般來說這樣就可以解決問題，但是在這裡這個錯誤<code>Liquid error: Could not open library ‘.dll’: The specified module could not be found.</code>依然出現。考慮是不是64位的問題，於是進入<code>C:/windows/sysWOW64</code>下，並沒有發現Python的相關dll，於是到<code>C:/windows/system32</code>下，將<code>python27.dll pythoncom27.dll pywintypes27.dll</code>拷貝到<code>C:/windows/sysWOW64</code>下。generate發現錯誤變成<code>Liquid error: Could not open library ‘C:/windows/system32/python27.dll’: The specified module could not be found.</code>。然後我就開始百思不得其解。最後沒有辦法，嘗試安裝了ActivePython的32-bit版本，問題迎刃而解。估計是rubypython對64位的python環境支持不好，無法打開64位Python的dll。所以在選擇ActivePython版本時，請使用32-bit版本。
+
+<h2>結語</h2>
+至此，中文版的Octopress在64位windows7中部署成功。折騰了那麼久，總算有所回報。但是想到要在別的Windows機器上寫博客，也要經過如此複雜的環境配置，我就覺得蛋疼。還好中文框架源碼已經使用了版本管理，並不需要對框架進行重複的修改。總的來說在Linux下部署Octopress要比在Windows中簡單得多，若經不起折騰，還是不由選用Windows + Octopress這種組合。但是既然你選用了Octopress，證明你的折騰能力還是有的，因為Octopress是一款面向Hacker的博客框架，就在使用Octopress的過程中，享受折騰帶來的樂趣吧。

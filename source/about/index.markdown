@@ -24,16 +24,19 @@ SPRABBIT-超科學兔耳中隊，是我們社團的名字，可以稱作SPRabbit
 Octopress所謂靜態博客，就是只包含靜態頁面的博客。不像Wordpress這樣的動態博客，Octopress沒有php頁面，所有頁面都是由純粹的HTML頁面構成的。博客這種類似于個人門戶網站的不需要太多交互的Web應用，確實比較適合于靜態頁面。至於其中的技術詳情，在此就不詳細多說，感興趣的朋友可以直接到<a href="http://octopress.org/">Octopress</a>的主頁查看架設教程，最好要有編程基礎，否則可能會覺得無從下手，因為Octopress是號稱是為Hacker設計的博客架構。其中涉及了Github版本管理，Ruby編程，還有最基本的html語言。就是說需要用記事本來寫日誌。
 
 比如說上面“簡介”那一段就要寫成：
-{% codeblock %}
+```  html 簡介 http://blog.sprabbit.com/about 頁面
 <h2>簡介</h2>
-這是<a href="http://www.sprabbit.com">SPRabbit(超科學兔耳中隊)</a>
-的博客。主要用於社團動向的發佈，以及社團作品的展示。除此之外還可能
-用作中隊長的個人博客，和社團技術博客。
-{% endcodeblock %}
+這是<a href="http://www.sprabbit.com">SPRabbit(超科學兔耳中隊)</a>的博客。主要用於社團動向的發佈，以及社團作品的展示。除此之外還可能用作中隊長的個人博客，和社團技術博客。
+``` 
 
 但是Octopress對中文支持不太好，包括不支持中文分類，所以需要對原框架做很多細微的修改。如果需要使用中文化的Octopress，可以在Github直接<a href="https://github.com/denjones/denjones.github.com/tree/source">clone本博客的框架</a>，然後將相關博文頁面刪除。
 
 <h2>聯繫方式</h2>
-社團信箱：<a href="sprabbit@163.com">sprabbit@163.com</a>
-社團QQ群：197397909
-社團首頁：<a href="http://www.sprabbit.com">http://www.sprabbit.com/</a>(以博客更新為主)
+大家可以通過以下方式聯繫我們：
+<ul>
+<li>社團信箱： <a href="mailto:sprabbit@163.com">sprabbit@163.com</a></li>
+<li>社團QQ群： 197397909</li>
+<li>社團首頁： <a href="http://www.sprabbit.com">http://www.sprabbit.com</a>（未完成）</li>
+<li>淘寶商店： <a href="http://sprabbit.taobao.com">http://sprabbit.taobao.com</a></li>
+<li>社團微博： <a href="http://weibo.com/kenjones">新浪微博</a></li>
+</ul>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[博客-SPRABBIT-超科學兔耳中隊]]></title>
-  <link href="http://blog.sprabbit.com/atom.xml" rel="self"/>
+  <title><![CDATA[文章分類: Octopress | 博客-SPRABBIT-超科學兔耳中隊]]></title>
+  <link href="http://blog.sprabbit.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
   <updated>2012-03-25T02:38:34+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
@@ -19,7 +19,7 @@
     <updated>2012-03-23T15:52:00+08:00</updated>
     <id>http://blog.sprabbit.com/blog/2012/03/23/octopress</id>
     <content type="html"><![CDATA[<blockquote>
-前言——可以在Linux環境下部署的話，還是盡可能在Linux下部署吧&#8230;
+前言——可以在Linux環境下部署的話，還是盡可能在Linux下部署吧...
 </blockquote>
 
 
@@ -31,13 +31,10 @@
 <h2>Ruby</h2>
 
 
-<p>Octopress要求的Ruby的版本是1.9.2，最好使用該版本，因為不同版本間的函數庫有可能有出入，導致某些插件無法運行。這裡經過我的折騰，發現最新版1.9.3也是支持的，目前使用起來沒有什麽問題，但是需要將octopress根目錄下的“.rvmrc”文件中的一行改成</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rvm use 1.9.3</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>Octopress要求的Ruby的版本是1.9.2，最好使用該版本，因為不同版本間的函數庫有可能有出入，導致某些插件無法運行。這裡經過我的折騰，發現最新版1.9.3也是支持的，目前使用起來沒有什麽問題，但是需要將octopress根目錄下的“.rvmrc”文件中的一行改成
+<code>
+rvm use 1.9.3
+</code></p>
 
 <h2>分支</h2>
 
@@ -64,21 +61,16 @@
 
 <p><a href="https://github.com/denjones/denjones.github.com/commit/1d4f3b9433a4d77e31530c4d5f20611c9b9829e2#diff-1">這裡是我對<code>category_generator.rb</code>的修改</a>。</p>
 
-<p>修改后的分類格式變更為<code>&lt;分類顯示名稱&gt;{&lt;分類目錄名稱&gt;}</code>。比如說你想建立一個“隨筆”分類，你想讓分類頁面保存在一個叫“essay”的目錄中，你就要在文章markdown文件的頭部加入這樣的一行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>categories:  隨筆{essay}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果希望歸類到多個分類，則需要這樣寫：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>categories: 
-</span><span class='line'> - 隨筆{essay}
-</span><span class='line'> - Octopress{octopress}</span></code></pre></td></tr></table></div></figure>
-
+<p>修改后的分類格式變更為<code>&lt;分類顯示名稱&gt;{&lt;分類目錄名稱&gt;}</code>。比如說你想建立一個“隨筆”分類，你想讓分類頁面保存在一個叫“essay”的目錄中，你就要在文章markdown文件的頭部加入這樣的一行：
+<code>
+categories:  隨筆{essay}
+</code>
+如果希望歸類到多個分類，則需要這樣寫：
+<code>
+categories:
+ - 隨筆{essay}
+ - Octopress{octopress}
+</code></p>
 
 <p>除此之外，還要對一些用於顯示分類名稱的頁面做一些修改。把其中的<code>category</code>修改為<code>category[/[ ^ { ]*/]</code>，因為這裡的<code>category</code>已經變成了<code>&lt;分類顯示名稱&gt;{&lt;分類目錄名稱&gt;}</code>的格式，需要使用正則表達式取出<code>&lt;分類顯示名稱&gt;</code>這一部份用於顯示。</p>
 
@@ -97,17 +89,6 @@
 
 
 <p>至此，中文版的Octopress在64位windows7中部署成功。折騰了那麼久，總算有所回報。但是想到要在別的Windows機器上寫博客，也要經過如此複雜的環境配置，我就覺得蛋疼。還好中文框架源碼已經使用了版本管理，並不需要對框架進行重複的修改。總的來說在Linux下部署Octopress要比在Windows中簡單得多，若經不起折騰，還是不由選用Windows + Octopress這種組合。但是既然你選用了Octopress，證明你的折騰能力還是有的，因為Octopress是一款面向Hacker的博客框架，就在使用Octopress的過程中，享受折騰帶來的樂趣吧。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[超科學兔耳中隊的博客]]></title>
-    <link href="http://blog.sprabbit.com/blog/2012/03/17/new-blog/"/>
-    <updated>2012-03-17T13:22:00+08:00</updated>
-    <id>http://blog.sprabbit.com/blog/2012/03/17/new-blog</id>
-    <content type="html"><![CDATA[<p>架設了N久，終於把博客架設上去了。作為SPRabbit的博客，除了有一般作品的發佈，還有一部份將會是SPRabbit的技術文章。這將會和很多其他社團的網站架構有所區別，因為SPRabbit除了作為同人社團進行同人創作，還作為一個技術團隊，進行技術上的研究與開發。</p>
-
-<p>關於本Blog的更多信息，可以在“<a href="http://blog.sprabbit.com/about">關於&#8230;</a>”中獲取。</p>
 ]]></content>
   </entry>
   

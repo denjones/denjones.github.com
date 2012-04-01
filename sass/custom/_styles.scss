@@ -1,6 +1,10 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
+html{
+	background: url("/images/gradient.png") black;
+}
+
 body{
 	width: 1000px;
 	font-size: 1em;

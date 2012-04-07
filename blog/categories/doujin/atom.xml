@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[文章分類: 社團 | 博客-SPRABBIT-超科學兔耳中隊]]></title>
-  <link href="http://blog.sprabbit.com/blog/categories/circle/atom.xml" rel="self"/>
+  <title><![CDATA[文章分類: 同人 | 博客-SPRABBIT-超科學兔耳中隊]]></title>
+  <link href="http://blog.sprabbit.com/blog/categories/doujin/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
   <updated>2012-04-07T20:38:03+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
@@ -65,17 +65,6 @@
 
 
 <p>這個企劃創意的靈感來源，要追溯到去年一個令人哀傷的消息。同人遊戲界的大神XT3000，同時也是百度的技術人員，林海韜，永遠地離開了我們。在校期間，XT3000發揚二次元精神，首創了OJ(Online Judge)擬人化，創造了西西裡娘這一鼓動著無數同學努力學習的虛擬人物。今天你依然可以在<a href="http://soj.me/">Sicily Online Judge</a>上，找到西西裡的身影。聽到這不幸的消息時，我們製作組正準備開發新的遊戲引擎，並且準備新作的開坑。我覺得非常感慨，雖然對XT3000並不是太過瞭解，但是我們上的是同一個學校，學的是類似的東西，走的都是同一條路，都有一顆二次元的心，因此產生了共鳴。於是決定做一個關於西西裡娘的遊戲，紀念故人，并展現我們這群苦逼碼農的日常。如今遊戲引擎開發進入最後階段，終於可以開始製作遊戲，雖然已經過去了很久，但是最終還是鼓起勇氣把專題網站立了起來。希望可以得到大家的支持(゜д゜)！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[超科學兔耳中隊的博客]]></title>
-    <link href="http://blog.sprabbit.com/blog/2012/03/17/new-blog/"/>
-    <updated>2012-03-17T13:22:00+08:00</updated>
-    <id>http://blog.sprabbit.com/blog/2012/03/17/new-blog</id>
-    <content type="html"><![CDATA[<p>架設了N久，終於把博客架設上去了。作為SPRabbit的博客，除了有一般作品的發佈，還有一部份將會是SPRabbit的技術文章。這將會和很多其他社團的網站架構有所區別，因為SPRabbit除了作為同人社團進行同人創作，還作為一個技術團隊，進行技術上的研究與開發。</p>
-
-<p>關於本Blog的更多信息，可以在“<a href="/about">關於...</a>”中獲取。</p>
 ]]></content>
   </entry>
   

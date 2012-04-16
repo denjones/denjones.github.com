@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[文章分類: Octopress | 博客-SPRABBIT-超科學兔耳中隊]]></title>
-  <link href="http://blog.sprabbit.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <title><![CDATA[文章分類: 技術 | 博客-SPRABBIT-超科學兔耳中隊]]></title>
+  <link href="http://blog.sprabbit.com/blog/categories/technique/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
   <updated>2012-04-16T13:25:35+08:00</updated>
   <id>http://blog.sprabbit.com/</id>

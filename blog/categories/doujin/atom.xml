@@ -4,7 +4,7 @@
   <title><![CDATA[文章分類: 同人 | 博客-SPRABBIT-超科學兔耳中隊]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/doujin/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2012-04-16T13:25:35+08:00</updated>
+  <updated>2012-04-17T12:46:00+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火霧宗師]]></name>
@@ -231,7 +231,12 @@ A:不知道你安裝了1.10補丁了沒有，如果安裝了是會有難度選�
 <h4>Q:臥了個槽，NET Framework和XNA Framework都好好的裝上、還重啟了兩次，重裝了2次，Oh yeah，遊戲依舊不能打開。</h4>
 <p>A:不好意思，應該是你的集顯配置太低無法運行我們的遊戲，你的顯卡並不支持遊戲所需的DirectX9.0還有Shader Mode 1.1，你的機子也比較老了，考慮升級一下顯卡吧，或者到別人電腦上面玩= =</p>
 
-<h2>寫在後面</h2>
+<h2>通贩地址</h2>
+<p><a href="http://item.taobao.com/item.htm?id=12621175463">盒裝版（剩量少）</a></p>
+<p><a href="http://item.taobao.com/item.htm?id=12547238487">數字版</a></p>
+
+
+<h2>寫在最後</h2>
 再次對各位玩家說聲抱歉，因為遊戲是在是太不完善了。而我們也沒有打算在此糾纏下去，因為XNA4.0作為一個新興的平臺，其本身就帶有許多缺陷。如果玩家電腦無法兼容XNA4.0，我實在是無能為力。雖然辛辛苦苦寫了一個基於XNA4.0的遊戲引擎，但是很遺憾，他的使命到此為止了。目前我們正在開發一款基於DirectX的遊戲引擎，目的旨在提高遊戲的兼容性，讓大家都能體驗到遊戲的樂趣。目前我們的下一作已經在開發中，希望各位玩家繼續給予支持，謝謝了！
 
 ]]></content>

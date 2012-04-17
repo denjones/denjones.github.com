@@ -61,7 +61,7 @@
 </form>
   
 ﻿<ul class="main-navigation">    
-  <li><a href="">博客</a></li>
+  <li><a href="/">博客</a></li>
   <li><a href="/circle">社團</a></li>
   <li><a href="/technique">技術</a></li>
   <li><a href="/blog/archives">文章</a></li>
@@ -176,6 +176,10 @@
 <aside class="sidebar">
   
     ﻿<section>
+  <h1>關於我</h1>
+  <p>大家好，我是超科學兔耳中隊長亂。</p>
+</section>
+﻿<section>
   <h1>最近投稿</h1>
   <ul id="recent_posts">
     
@@ -197,41 +201,33 @@
     
   </ul>
 </section>
-
 <section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+  <h2>友情鏈接</h2>
+  <div id= "friend_link">
+  <ul>
+	<li>
+	  <h3>本社團的LINK，有愛自取</h3>
+	  <a href="http://www.sprabbit.com"><img src="/images/sprabbit_link.jpg" alt="SPRABBIT" /></a>
+	</li>
+  
+    <li>
+	  <h3>火霧宗師的百度空間</h3>
+	  <a href="http://hi.baidu.com/kenjones"><img src="/images/hikiri_link.png" alt="火霧宗師" /></a>
+	</li>
+	
+	<li>
+	  <h3>KenJ的P站</h3>
+	  <a href="http://www.pixiv.net/member.php?id=597977"><img src="/images/kenj_link.gif" alt="KENJ" /></a>
+	</li>
+	
+	<li>
+	  <h3>TID</h3>
+	  <a href="http://hi.baidu.com/tidsean"><img src="/images/tid_link.gif" alt="TID" /></a>
+	</li>
   </ul>
-  
-  <a href="https://github.com/denjones">@denjones</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'denjones',
-            count: 1,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
+  <p>鏈接交換請聯繫我們</p>
+  </div>
 </section>
-
-
-
-
-
-
   
 </aside>
 

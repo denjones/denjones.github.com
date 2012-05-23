@@ -43,7 +43,7 @@ pygments: true # default python pygments have been replaced by pygments.rb
 paginate: 10          # Posts per page on the blog index
 pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
 recent_posts: 5       # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_link: "更多 &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
 
 titlecase: true       # Converts page and post titles to titlecase
 
@@ -55,14 +55,20 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # and add an array with the asides you want to use.
 # blog_index_asides:
 # post_asides:
-# page_asides:
+
+page_asides:
+ - custom/asides/about.html
+ - asides/recent_posts.html
+ - custom/asides/friend_link.html
 
 blog_index_asides:
  - custom/asides/about.html
  - custom/asides/category_sidebar.html
+ - custom/asides/friend_link.html
  - asides/recent_posts.html
  - custom/asides/latest_comments.html
- - custom/asides/weibo.html 
+# - custom/asides/weibo.html 
+
  
 # post_asides:
 # page_asides:

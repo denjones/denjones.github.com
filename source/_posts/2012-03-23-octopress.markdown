@@ -3,7 +3,9 @@ layout: post
 title: "關於在64位 Windows 7 中部署中文化的Octopress"
 date: 2012-03-23 15:52
 comments: true
-categories:  Octopress{octopress}
+categories:  
+ - Octopress{octopress}
+ - 技術{technique}
 ---
 
 <blockquote>
@@ -14,6 +16,8 @@ categories:  Octopress{octopress}
 
 一般的安裝步驟，在<a href="http://octopress.org/docs/">Octopress的文檔</a>中就有詳細的說明。而在Windows 7中部署，則可參考<a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/">Sinosmond的一篇文章</a>。
 具體的部署過程，我就不再重複了，只是在部署過程中有幾點是需要注意的。
+
+<!--more-->
 
 <h2>Ruby</h2>
 Octopress要求的Ruby的版本是1.9.2，最好使用該版本，因為不同版本間的函數庫有可能有出入，導致某些插件無法運行。這裡經過我的折騰，發現最新版1.9.3也是支持的，目前使用起來沒有什麽問題，但是需要將octopress根目錄下的“.rvmrc”文件中的一行改成

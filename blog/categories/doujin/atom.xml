@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[文章分类: 同人 | 博客-SPRABBIT-超科学兔耳中队]]></title>
+  <title><![CDATA[文章分類: 同人 | 博客-SPRABBIT-超科學兔耳中隊]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/doujin/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2012-07-14T16:37:14+08:00</updated>
+  <updated>2012-07-14T16:58:03+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
-    <name><![CDATA[火雾宗师]]></name>
+    <name><![CDATA[火霧宗師]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -239,6 +239,20 @@ A:不知道你安装了1.10补丁了没有，如果安装了是会有难度选�
 <h2>写在最后</h2>
 再次对各位玩家说声抱歉，因为游戏是在是太不完善了。而我们也没有打算在此纠缠下去，因为XNA4.0作为一个新兴的平台，其本身就带有许多缺陷。如果玩家计算机无法兼容XNA4.0，我实在是无能为力。虽然辛辛苦苦写了一个基于XNA4.0的游戏引擎，但是很遗憾，他的使命到此为止了。目前我们正在开发一款基于DirectX的游戏引擎，目的旨在提高游戏的兼容性，让大家都能体验到游戏的乐趣。目前我们的下一作已经在开发中，希望各位玩家继续给予支持，谢谢了！
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[小圆同人四格漫画《Predestined》]]></title>
+    <link href="http://blog.sprabbit.com/blog/2011/07/26/predestined/"/>
+    <updated>2011-07-26T16:50:00+08:00</updated>
+    <id>http://blog.sprabbit.com/blog/2011/07/26/predestined</id>
+    <content type="html"><![CDATA[<p><img src="/images/predestined_poster.jpg" alt="Prestined 宣传"/>
+<img src="/images/predestined_set.jpg" alt="Prestined 套装"/></p>
+
+<p>淘宝：
+<a href="http://item.taobao.com/item.htm?id=12290433965">本子单买</a>
+<a href="http://item.taobao.com/item.htm?id=12288922556">本子套装</a></p>
 ]]></content>
   </entry>
   

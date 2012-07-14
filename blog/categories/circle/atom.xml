@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[文章分类: 社团 | 博客-SPRABBIT-超科学兔耳中队]]></title>
+  <title><![CDATA[文章分類: 社团 | 博客-SPRABBIT-超科學兔耳中隊]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/circle/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2012-07-14T16:37:14+08:00</updated>
+  <updated>2012-07-14T16:58:03+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
-    <name><![CDATA[火雾宗师]]></name>
+    <name><![CDATA[火霧宗師]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -250,6 +250,20 @@ A:不知道你安装了1.10补丁了没有，如果安装了是会有难度选�
     <content type="html"><![CDATA[<p>架设了N久，终于把博客架设上去了。作为SPRabbit的博客，除了有一般作品的发布，还有一部份将会是SPRabbit的技术文章。这将会和很多其他社团的网站架构有所区别，因为SPRabbit除了作为同人社团进行同人创作，还作为一个技术团队，进行技术上的研究与开发。</p>
 
 <p>关于本Blog的更多信息，可以在“<a href="/about">关于...</a>”中获取。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[小圆同人四格漫画《Predestined》]]></title>
+    <link href="http://blog.sprabbit.com/blog/2011/07/26/predestined/"/>
+    <updated>2011-07-26T16:50:00+08:00</updated>
+    <id>http://blog.sprabbit.com/blog/2011/07/26/predestined</id>
+    <content type="html"><![CDATA[<p><img src="/images/predestined_poster.jpg" alt="Prestined 宣传"/>
+<img src="/images/predestined_set.jpg" alt="Prestined 套装"/></p>
+
+<p>淘宝：
+<a href="http://item.taobao.com/item.htm?id=12290433965">本子单买</a>
+<a href="http://item.taobao.com/item.htm?id=12288922556">本子套装</a></p>
 ]]></content>
   </entry>
   

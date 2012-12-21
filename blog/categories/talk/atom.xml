@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[文章分类: 杂谈 | 博客-SPRABBIT-超科学兔耳中队]]></title>
+  <title><![CDATA[文章分類: 杂谈 | 博客-SPRABBIT-超科學兔耳中隊]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/talk/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2012-07-14T18:50:11+08:00</updated>
+  <updated>2012-12-21T18:20:25+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
-    <name><![CDATA[火雾宗师]]></name>
+    <name><![CDATA[火霧宗師]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -18,7 +18,7 @@
     <link href="http://blog.sprabbit.com/blog/2012/03/17/new-blog/"/>
     <updated>2012-03-17T13:22:00+08:00</updated>
     <id>http://blog.sprabbit.com/blog/2012/03/17/new-blog</id>
-    <content type="html"><![CDATA[<p>架设了N久，终于把博客架设上去了。作为SPRabbit的博客，除了有一般作品的发布，还有一部份将会是SPRabbit的技术文章。这将会和很多其他社团的网站架构有所区别，因为SPRabbit除了作为同人社团进行同人创作，还作为一个技术团队，进行技术上的研究与开发。</p>
+    <content type="html"><![CDATA[<p>架设了N久，终于把博客架设上去了。作为SPRabbit的博客，除了有一般作品的发布，还有少部份将会是SPRabbit的技术文章。这将会和很多其他社团的网站架构有所区别，因为SPRabbit除了作为同人社团进行同人创作，还作为一个技术团队，进行技术上的研究与开发。</p>
 
 <p>关于本Blog的更多信息，可以在“<a href="/about">关于...</a>”中获取。</p>
 ]]></content>

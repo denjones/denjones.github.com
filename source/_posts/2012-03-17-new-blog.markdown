@@ -1,15 +1,15 @@
-﻿# encoding: utf-8
+# encoding: utf-8
 
 ---
 layout: post
-title: "超科學兔耳中隊的博客"
+title: "超科学兔耳中队的博客"
 date: 2012-03-17 13:22
 comments: true
 categories: 
- - 雜談{talk}
- - 社團{circle}
+ - 杂谈{talk}
+ - 社团{circle}
 ---
 
-架設了N久，終於把博客架設上去了。作為SPRabbit的博客，除了有一般作品的發佈，還有一部份將會是SPRabbit的技術文章。這將會和很多其他社團的網站架構有所區別，因為SPRabbit除了作為同人社團進行同人創作，還作為一個技術團隊，進行技術上的研究與開發。
+架设了N久，终于把博客架设上去了。作为SPRabbit的博客，除了有一般作品的发布，还有少部份将会是SPRabbit的技术文章。这将会和很多其他社团的网站架构有所区别，因为SPRabbit除了作为同人社团进行同人创作，还作为一个技术团队，进行技术上的研究与开发。
 
-關於本Blog的更多信息，可以在“<a href="{{ root_url }}/about">關於...</a>”中獲取。
+关于本Blog的更多信息，可以在“<a href="{{ root_url }}/about">关于...</a>”中获取。

@@ -46,9 +46,9 @@ categories:
 
 所需要安装的运行环境有两个：
 
-.NET Framework Client Profile 4.0：<a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=24872">微软官网</a> <a href="http://u.115.com/file/e6y5tehl#">115网盘</a>
+.NET Framework Client Profile 4.0：<a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=24872">微软官网</a> <a href="http://u.115.com/file/e6y5tehl#">115网盘</a> <a href="http://pan.baidu.com/share/link?shareid=143702&uk=872546290&third=0">百度网盘</a>
 
-XNA Framework Redistributable 4.0：<a href="http://www.microsoft.com/download/en/details.aspx?id=20914">微软官网</a> <a href="http://u.115.com/file/dn61mbgg#">115网盘</a>
+XNA Framework Redistributable 4.0：<a href="http://www.microsoft.com/download/en/details.aspx?id=20914">微软官网</a> <a href="http://u.115.com/file/dn61mbgg#">115网盘</a> <a href="http://pan.baidu.com/share/link?shareid=143703&uk=872546290&third=0">百度网盘</a>
 
 安装完毕后，即可运行游戏安装文件进行安装。
 
@@ -104,14 +104,14 @@ Shift(左) 加速/减速
 后期出现多个己方单位后，会开启援助系统，若单位附近的黄色格子中，有己方单位存在的话，该单位会在战斗中对你进行支持射击。当然，敌方也有类似系统。
 
 <h2>游戏试玩下载</h2>
-《颤抖吧 废怯少女！》试玩版：<a href="http://u.115.com/file/aq7qbz82#">115网盘</a>
+《颤抖吧 废怯少女！》试玩版：<a href="http://u.115.com/file/aq7qbz82#">115网盘</a> <a href="http://pan.baidu.com/share/link?shareid=143700&uk=872546290&third=0">百度网盘</a>
 
 安装试玩版前，请确保已经安装上述运行环境。
 
 本试玩版包含各种游戏难度下的前三关可供试玩。虽然我也想提供完整的版本，但是这对于已购买盒装游戏的玩家并不公平，所以若有兴趣继续游玩，可以到本社淘宝店购买电子版。
 
 <h2>游戏补丁</h2>
-策略射击游戏《颤抖吧 废怯少女！》V1.10 升级补丁： <a href="http://u.115.com/file/dnhnsp75#">115网盘</a>
+策略射击游戏《颤抖吧 废怯少女！》V1.10 升级补丁： <a href="http://u.115.com/file/dnhnsp75#">115网盘</a> <a href="http://pan.baidu.com/share/link?shareid=143701&uk=872546290&third=0">百度网盘</a>
 
 使用方法：<br/>
 请覆盖安装本补丁。仅对应盒装光盘版游戏。

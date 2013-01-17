@@ -4,7 +4,7 @@
   <title><![CDATA[博客-SPRABBIT-超科學兔耳中隊]]></title>
   <link href="http://blog.sprabbit.com/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-01-17T15:43:14+08:00</updated>
+  <updated>2013-01-17T16:24:04+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火霧宗師]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sicily Android 小应用]]></title>
+    <link href="http://blog.sprabbit.com/blog/2013/01/17/android-moe-sicily/"/>
+    <updated>2013-01-17T15:46:00+08:00</updated>
+    <id>http://blog.sprabbit.com/blog/2013/01/17/android-moe-sicily</id>
+    <content type="html"><![CDATA[<p>蹬蹬，我是来报告<a href="http://www.sprabbit.com/sicily/">Sicily</a>的进展的，在密锣紧鼓的制作下，Sicily终于有幸在今年内推出了（PIA~到底要等到什么时候啊！</p>
+
+<p>好吧，稍安勿躁，在游戏推出之前先让茜茜酱在手机里安抚一下大家的心灵吧。</p>
+
+<p><img src="http://blog.sprabbit.com/images/android_sicily_widget.jpg" alt="Sicily Widget" /></p>
+
+<p><img src="http://blog.sprabbit.com/images/android_sicily_main.jpg" alt="Sicily Main" /></p>
+
+<!--more-->
+
+
+<p>这是一个灰常简单的卖萌Android程序，基于Android2.1以上系统，主程序打开后点任何地方可以让茜茜酱换对白，按菜单键可以做一下简单的设置，包括换称呼等。程序包括一个桌面小部件，跟主程序有相同的卖萌功能。点击小部件中的卖萌按钮可以换对白，点击茜茜莉可以打开主程序。</p>
+
+<p>注意要安装在手机上才能看到桌面小部件哦。目前只有简单的卖萌功能，说不定以后可以添加闹钟，定时提醒等功能呢，敬请期待吧。。</p>
+
+<p>另外吐槽一下Google Play的开发者认证，好麻烦啊，又没钱，所以没放到上面，只能这样发布了。</p>
+
+<p>程序：宗师</p>
+
+<p>美术：林卯</p>
+
+<p>立绘：Penslip</p>
+
+<p>下载地址： <a href="http://pan.baidu.com/share/link?shareid=166768&amp;uk=872546290">百度网盘</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于SPEShow]]></title>

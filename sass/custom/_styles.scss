@@ -22,6 +22,14 @@ body > header h2{
     padding: 90px 0 0 495px;
 }
 
+.entry-content{
+	font-size: 14px;
+}
+
+#uyan_frame img{
+	border:0px;
+}
+
 #ujian-backtop{
 	background: none;
 	border: none;
@@ -34,6 +42,7 @@ body > header h2{
 
 .sharing{
 	overflow: auto;
+	padding: 0 0 1em 0 !important;
 }
 
 .sharing .flash-video{

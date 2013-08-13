@@ -112,6 +112,11 @@ git clone -b source username:username.github.com.git username.github.com
 ```
 以便将“source”分支clone到username.github.com文件夹下。其中以上所有“username”改为真正的用户名。
 
+如果出现错误尝试使用
+```
+git clone -b source git@github.com:username/username.github.com username.github.com
+```
+
 <h4>clone master 分支</h4>
 
 在git bash中继续执行
@@ -120,6 +125,10 @@ cd username.github.com #进入到source分支目录
 git clone -b master username:username.github.com.git _deploy
 ```
 以便将“master”分支clone到username.github.com文件夹下的_deploy文件夹。其中以上所有“username”改为真正的用户名。
+如果出现错误尝试使用
+```
+git clone -b master git@github.com:username/username.github.com username.github.com
+```
 
 <h4>完成部署</h4>
 

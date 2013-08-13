@@ -8,7 +8,7 @@ footer: true
 <img src="/images/logo_long_s.png" alt="SPRABBIT"/>
 
 <h2>简介</h2>
-这是<a href="http://www.sprabbit.com">SPRabbit(超科学兔耳中队)</a>的博客。主要用于社团动向的发布，以及社团作品的展示。除此之外还可能用作中队长的个人博客，和社团技术博客。
+这是<a href="http://www.sprabbit.com">SPRABBIT(超科学兔耳中队)</a>的博客。主要用于社团动向的发布，以及社团作品的展示。除此之外还可能用作中队长的个人博客，和社团技术博客。
 
 <h2>SPRABBIT</h2>
 SPRABBIT-超科学兔耳中队，是我们社团的名字，可以称作SPRabbit、SPR、超科学兔耳中队、兔耳中队……嘛，关于这个名字的由来，我会告诉你们是随便取的么！
@@ -21,12 +21,12 @@ SPRABBIT-超科学兔耳中队，是我们社团的名字，可以称作SPRabbit
 <h2>Octopress</h2>
 以前使用的是<a href="http://sprabbit.blog.163.com/">163的免费博客</a>，但是觉得有太多限制，无法展现一个社团的创造力。有了自己的域名之后，有在主机上假设过<a href="http://www.sprabbit.com/blog">Wordpress的博客</a>，但是免费主机的接口有所限制，Wordpress中的许多插件功能无法实现，于是只好放弃。后来一个崭新的词汇引起了我的注意——静态博客。其中一个比较流行的模板就是我们现在在使用的<a href="http://octopress.org/">Octopress</a>。
 
-Octopress所谓静态博客，就是只包含静态页面的博客。不像Wordpress这样的动态博客，Octopress没有php页面，所有页面都是由纯粹的HTML页面构成的。博客这种类似于个人门户网站的不需要太多交互的Web应用，确实比较适合于静态页面。至于其中的技术详情，在此就不详细多说，感兴趣的朋友可以直接到<a href="http://octopress.org/">Octopress</a>的主页查看架设教程，最好要有编程基础，否则可能会觉得无从下手，因为Octopress是号称是为Hacker设计的博客架构。其中涉及了Github版本管理，Ruby编程，还有最基本的html语言。就是说需要用记事本来写日志。
+Octopress所谓静态博客，就是只包含静态页面的博客。不像Wordpress这样的动态博客，Octopress没有php页面，所有页面都是由纯粹的HTML页面构成的。博客这种类似于个人门户网站的不需要太多交互的Web应用，确实比较适合于静态页面。至于其中的技术详情，在此就不详细多说，感兴趣的朋友可以直接到<a href="http://octopress.org/">Octopress</a>的主页查看架设教程，最好要有编程基础，否则可能会觉得无从下手，因为Octopress是号称是为Hacker设计的博客架构。其中涉及了Github版本管理，Ruby编程，markdown语法，还有最基本的html语言。就是说需要用记事本来写日志。
 
 比如说上面“简介”那一段就要写成：
 ```  html 简介 http://blog.sprabbit.com/about 页面
 <h2>简介</h2>
-这是<a href="http://www.sprabbit.com">SPRabbit(超科学兔耳中队)</a>的博客。主要用于社团动向的发布，以及社团作品的展示。除此之外还可能用作中队长的个人博客，和社团技术博客。
+这是[SPRabbit(超科学兔耳中队)](http://www.sprabbit.com)的博客。主要用于社团动向的发布，以及社团作品的展示。除此之外还可能用作中队长的个人博客，和社团技术博客。
 ``` 
 
 但是Octopress对中文支持不太好，包括不支持中文分类，所以需要对原框架做很多细微的修改。如果需要使用中文化的Octopress，可以在Github直接<a href="https://github.com/denjones/denjones.github.com/tree/source">clone本博客的框架</a>，然后将相关博文页面删除。

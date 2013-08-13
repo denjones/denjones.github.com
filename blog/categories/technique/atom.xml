@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[文章分類: 技术 | 博客-SPRABBIT-超科學兔耳中隊]]></title>
+  <title><![CDATA[文章分类: 技术 | 博客-SPRABBIT-超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/technique/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-03-02T16:38:05+08:00</updated>
+  <updated>2013-08-13T15:25:44+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
-    <name><![CDATA[火霧宗師]]></name>
+    <name><![CDATA[火雾宗师]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[关于SPEShow]]></title>
+    <title type="html"><![CDATA[关于SpeShow]]></title>
     <link href="http://blog.sprabbit.com/blog/2013/01/17/about-speshow/"/>
     <updated>2013-01-17T15:07:00+08:00</updated>
     <id>http://blog.sprabbit.com/blog/2013/01/17/about-speshow</id>
-    <content type="html"><![CDATA[<p><a href="http://www.sprabbit.com/spengine/speshow.html">SPEShow(SPENGINE)的链接</a>早就加在了<a href="http://www.sprabbit.com">SPRABBIT首页</a>的导航栏上，不过可能不是很起眼，所以没什么人知道。</p>
+    <content type="html"><![CDATA[<p><a href="http://www.sprabbit.com/spengine/speshow.html">SpeShow(SPENGINE)的链接</a>早就加在了<a href="http://www.sprabbit.com">SPRABBIT首页</a>的导航栏上，不过可能不是很起眼，所以没什么人知道。</p>
 
-<p>虽然SPEShow发布已经有一段时间了，但是感觉还是在博客里记录一下比较好。SPEShow是主要由我编写的一个图文脚本演示程序，最初的目的是用来做Galgame，但是希望做的更通用点，所以就扩展为图文脚本演示，不过称之为Galgame引擎也不为过。相关的信息可以查看<a href="http://www.sprabbit.com/spengine/speshow.html">SPEShow(SPENGINE)的主页</a>，里面包括有介绍，教程，演示视频，程序下载等内容。</p>
+<p>虽然SpeShow发布已经有一段时间了，但是感觉还是在博客里记录一下比较好。SpeShow是主要由我编写的一个图文脚本演示程序，最初的目的是用来做Galgame，但是希望做的更通用点，所以就扩展为图文脚本演示，不过称之为Galgame引擎也不为过。相关的信息可以查看<a href="http://www.sprabbit.com/spengine/speshow.html">SpeShow(SPENGINE)的主页</a>，里面包括有介绍，教程，演示视频，程序下载等内容。</p>
 
-<p>不过实际上这个引擎的完善度还有所欠缺，我又面临毕业就业，可能完善这个引擎将是一个很漫长的过程。但是此前我将会全力让他能制作出完整的Galgame，毕竟我就是为了制作新的Galgame才开发的这个引擎啊。首个SPEShow游戏将会是我们的下一作<a href="http://www.sprabbit.com/sicily/">Sicily-零与一的幻想</a>，目前正在紧密制作中呢，敬请期待啦。</p>
+<p>不过实际上这个引擎的完善度还有所欠缺，我又面临毕业就业，可能完善这个引擎将是一个很漫长的过程。但是此前我将会全力让他能制作出完整的Galgame，毕竟我就是为了制作新的Galgame才开发的这个引擎啊。首个SpeShow游戏将会是我们的下一作<a href="http://www.sprabbit.com/sicily/">Sicily-零与一的幻想</a>，目前正在紧密制作中呢，敬请期待啦。</p>
 
 <p>无论如何，加油！</p>
 ]]></content>
@@ -158,6 +158,11 @@ git clone -b source username:username.github.com.git username.github.com
 </code>
 以便将“source”分支clone到username.github.com文件夹下。其中以上所有“username”改为真正的用户名。</p>
 
+<p>如果出现错误尝试使用
+<code>
+git clone -b source git@github.com:username/username.github.com username.github.com
+</code></p>
+
 <h4>clone master 分支</h4>
 
 
@@ -166,7 +171,11 @@ git clone -b source username:username.github.com.git username.github.com
 cd username.github.com #进入到source分支目录
 git clone -b master username:username.github.com.git _deploy
 </code>
-以便将“master”分支clone到username.github.com文件夹下的_deploy文件夹。其中以上所有“username”改为真正的用户名。</p>
+以便将“master”分支clone到username.github.com文件夹下的_deploy文件夹。其中以上所有“username”改为真正的用户名。
+如果出现错误尝试使用
+<code>
+git clone -b master git@github.com:username/username.github.com username.github.com
+</code></p>
 
 <h4>完成部署</h4>
 

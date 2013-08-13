@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[文章分類: Octopress | 博客-SPRABBIT-超科學兔耳中隊]]></title>
+  <title><![CDATA[文章分类: Octopress | 博客-SPRABBIT-超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-03-02T16:38:05+08:00</updated>
+  <updated>2013-08-13T15:25:44+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
-    <name><![CDATA[火霧宗師]]></name>
+    <name><![CDATA[火雾宗师]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -143,6 +143,11 @@ git clone -b source username:username.github.com.git username.github.com
 </code>
 以便将“source”分支clone到username.github.com文件夹下。其中以上所有“username”改为真正的用户名。</p>
 
+<p>如果出现错误尝试使用
+<code>
+git clone -b source git@github.com:username/username.github.com username.github.com
+</code></p>
+
 <h4>clone master 分支</h4>
 
 
@@ -151,7 +156,11 @@ git clone -b source username:username.github.com.git username.github.com
 cd username.github.com #进入到source分支目录
 git clone -b master username:username.github.com.git _deploy
 </code>
-以便将“master”分支clone到username.github.com文件夹下的_deploy文件夹。其中以上所有“username”改为真正的用户名。</p>
+以便将“master”分支clone到username.github.com文件夹下的_deploy文件夹。其中以上所有“username”改为真正的用户名。
+如果出现错误尝试使用
+<code>
+git clone -b master git@github.com:username/username.github.com username.github.com
+</code></p>
 
 <h4>完成部署</h4>
 

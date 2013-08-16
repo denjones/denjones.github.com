@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[博客-SPRABBIT-超科学兔耳中队]]></title>
+  <title><![CDATA[博客 SPRABBIT 超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-08-16T13:44:00+08:00</updated>
+  <updated>2013-08-16T19:37:19+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火雾宗师]]></name>

@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dust.js语法简介（一） - 博客-SPRABBIT-超科学兔耳中队</title>
+  <meta name="author" content="火雾宗师">
+
+  
+  <meta name="description" content="经过一轮挣扎，我作出了与LinkedIn一样的选择，使用Dust.js作为模板，但是因为Dust.js缺少中文文档，导致在国内的普及率比较低。于是我决定在这里对Dust的语法进行一些必要的介绍。 为什么要用前端模板？ 在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.sprabbit.com/blog/2013/08/16/introduction-dustjs-1">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="博客-SPRABBIT-超科学兔耳中队" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/javascripts/sh_main.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/stylesheets/sh_style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="ujianVerification" content="1416541d7ac44628225afc999ce80505" />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <!-- <h1><a href="/">博客-SPRABBIT-超科学兔耳中队</a></h1> -->
+  
+    <h2>中文同人社团</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://www.baidu.com/s" method="get">
+  <fieldset role="search">
+	
+	  <input type="hidden" name="wd" value="site:blog.sprabbit.com" />
+      <input class="search" type="text" name="wd" results="0" placeholder="Search"/>
+	
+  </fieldset>
+</form>
+  
+﻿<ul class="main-navigation">    
+  <li><a href="/">博客</a></li>
+  <li><a href="/circle">社团</a></li>
+  <li><a href="/technique">技术</a></li>
+  <li><a href="/blog/archives">文章</a></li>
+  <li><a href="/about">关于</a></li>
+  <li><a href="http://www.sprabbit.com/">首页</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Dust.js语法简介（一）</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-16T09:44:00+08:00" pubdate data-updated="true">13年08月16日</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="/blog/2013/08/15/introduction-client-template/">经过一轮挣扎</a>，我作出了与LinkedIn一样的选择，使用Dust.js作为模板，但是因为Dust.js缺少中文文档，导致在国内的普及率比较低。于是我决定在这里对Dust的语法进行一些必要的介绍。</p>
+
+<!--more-->
+
+
+<h2>为什么要用前端模板？</h2>
+
+<p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象<code>people</code>是下面这样的：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Famous People&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;names&quot;</span><span class="o">:</span> <span class="p">[{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Larry&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Curly&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Moe&quot;</span> <span class="p">}]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我们要把他渲染成一个HTML列表如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>Famous People
+</span><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>　　<span class="nt">&lt;li&gt;</span>Larry<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>　　<span class="nt">&lt;li&gt;</span>Curly<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>　　<span class="nt">&lt;li&gt;</span>Moe<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用纯粹的javascript将是这样的：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">people</span><span class="p">.</span><span class="nx">title</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">result</span> <span class="o">+=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">people</span><span class="p">.</span><span class="nx">names</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">result</span> <span class="o">+=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">+</span> <span class="nx">people</span><span class="p">.</span><span class="nx">names</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nx">result</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当然了这只是一个比较简单的例子，而且代码具有专用性且不是最简形式，但是为了兼顾可读性和简介性这样写是比较好的。而使用dust模板将只需要一个模板：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{title}
+</span><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>{#names}
+</span><span class='line'>　　<span class="nt">&lt;li&gt;</span>{name}<span class="nt">&lt;/li&gt;</span>{~n}
+</span><span class='line'>{/names}
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后将<code>people</code>传给编译好的模板则可生成所需要的结果，非常直观。</p>
+
+<h2>什么是Dust.js？</h2>
+
+<p>Dustjs、dust.js或者直接叫Dust，是一种模板，一开始是由<a href="https://github.com/akdubya">Aleksander</a> 编写并于2010发布第一个版本<a href="https://github.com/akdubya/dustjs">于Github</a>。因为后台编译使用 Node.js 所以延续了在插件名后加.js的传统。Aleksander 很喜欢胡子模板 Mustache 的语法。但是Mustache缺少了Aleksander想要的特性，比如模板块和高性能。</p>
+
+<p>从<a href="http://akdubya.github.io/dustjs/">dust.js的导引页面</a>看来，这个模板制作者还是很有诚意的。可惜这个项目已于两年前停止更新，版本停留在0.3.0。好消息是大型职业社交网<a href="http://www.linkedin.com">LinkedIn</a>也了解到了这个模板的优点和潜力，并接手了Dust.js的后续开发，最终出来的就是现在的<a href="http://linkedin.github.io/dustjs/">Dust.js(LinkedIn)</a>，为了简便起见后面继续称之为Dust。经过不断地更新，Dust目前已经到了2.0版本了。</p>
+
+<h2></h2>
+
+<p>由于时间关系，我还是决定将真正的语法介绍留到下一篇文章了，敬请期待。</p>
+</div>
+
+  <footer>
+    <p class="meta">
+      ﻿
+  
+
+<span class="byline author vcard">投稿人 <span class="fn">火雾宗师</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-16T09:44:00+08:00" pubdate data-updated="true">13年08月16日</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/technique/'>技术</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+  
+    ﻿<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share?uid=1589291" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1589291" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/15/introduction-client-template/" title="Previous Post: 前端模板的选择">&laquo; 前端模板的选择</a>
+      
+      
+    </p>
+	
+      <!-- UY BEGIN -->
+<hr/>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1589291" async=""></script>
+<!-- UY END -->
+    
+  </footer>
+</article>
+
+
+
+</div>
+
+<aside class="sidebar">
+  
+    ﻿<section>
+  <h1>最近投稿</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/16/introduction-dustjs-1/">Dust.js语法简介（一）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/15/introduction-client-template/">前端模板的选择</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/13/game-server-to-front-end/">从游戏服务端到Web前端</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/17/android-moe-sicily/">Sicily Android 小应用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/17/about-speshow/">关于SpeShow</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/denjones">@denjones</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'denjones',
+            count: 1,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><div id="google_translate_element"></div>
+<p>
+  Copyright &copy; 2013 - 火雾宗师 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  
+  <script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'zh-CN',
+			includedLanguages: 'ja,en,zh-TW,zh-CN',
+			autoDisplay: false,
+			gaTrack: true,
+			layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+		}, 'google_translate_element');
+	}
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd98dab13c098e2a1f6439b963347ad32' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+<!-- UJian Button BEGIN -->
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?type=slide&btn=3&uid=1589291"></script>
+<!-- UJian Button END -->
+
+
+</body>
+</html>

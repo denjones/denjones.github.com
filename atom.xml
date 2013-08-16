@@ -4,7 +4,7 @@
   <title><![CDATA[博客-SPRABBIT-超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-08-15T21:54:35+08:00</updated>
+  <updated>2013-08-16T13:44:00+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火雾宗师]]></name>
@@ -12,6 +12,96 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dust.js语法简介（一）]]></title>
+    <link href="http://blog.sprabbit.com/blog/2013/08/16/introduction-dustjs-1/"/>
+    <updated>2013-08-16T09:44:00+08:00</updated>
+    <id>http://blog.sprabbit.com/blog/2013/08/16/introduction-dustjs-1</id>
+    <content type="html"><![CDATA[<p><a href="http://blog.sprabbit.com/blog/2013/08/15/introduction-client-template/">经过一轮挣扎</a>，我作出了与LinkedIn一样的选择，使用Dust.js作为模板，但是因为Dust.js缺少中文文档，导致在国内的普及率比较低。于是我决定在这里对Dust的语法进行一些必要的介绍。</p>
+
+<!--more-->
+
+
+<h2>为什么要用前端模板？</h2>
+
+<p>在静态页面中，包括已经从后台生成的HTML中，一般很少需要应用到模板，但是随着AJAX技术的发展，不刷新页面而动态更新内容的需求越来越高。为了降低通讯成本，这种通讯技术传输的一般是一个JSON对象，而不是一整串HTML字符串，所以在前端接受JSON数据之后，还要经过处理才能按要求显示在浏览器上。若只是用纯javascript进行拼接处理，将是一个比较繁琐的过程，而且写出来的代码不直观，可读性比较低。比如如果一个JSON对象<code>people</code>是下面这样的：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Famous People&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;names&quot;</span><span class="o">:</span> <span class="p">[{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Larry&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Curly&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Moe&quot;</span> <span class="p">}]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我们要把他渲染成一个HTML列表如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>Famous People
+</span><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>　　<span class="nt">&lt;li&gt;</span>Larry<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>　　<span class="nt">&lt;li&gt;</span>Curly<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>　　<span class="nt">&lt;li&gt;</span>Moe<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用纯粹的javascript将是这样的：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">people</span><span class="p">.</span><span class="nx">title</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nx">result</span> <span class="o">+=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">people</span><span class="p">.</span><span class="nx">names</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">result</span> <span class="o">+=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">+</span> <span class="nx">people</span><span class="p">.</span><span class="nx">names</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nx">result</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当然了这只是一个比较简单的例子，而且代码具有专用性且不是最简形式，但是为了兼顾可读性和简介性这样写是比较好的。而使用dust模板将只需要一个模板：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{title}
+</span><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>{#names}
+</span><span class='line'>　　<span class="nt">&lt;li&gt;</span>{name}<span class="nt">&lt;/li&gt;</span>{~n}
+</span><span class='line'>{/names}
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后将<code>people</code>传给编译好的模板则可生成所需要的结果，非常直观。</p>
+
+<h2>什么是Dust.js？</h2>
+
+<p>Dustjs、dust.js或者直接叫Dust，是一种模板，一开始是由<a href="https://github.com/akdubya">Aleksander</a> 编写并于2010发布第一个版本<a href="https://github.com/akdubya/dustjs">于Github</a>。因为后台编译使用 Node.js 所以延续了在插件名后加.js的传统。Aleksander 很喜欢胡子模板 Mustache 的语法。但是Mustache缺少了Aleksander想要的特性，比如模板块和高性能。</p>
+
+<p>从<a href="http://akdubya.github.io/dustjs/">dust.js的导引页面</a>看来，这个模板制作者还是很有诚意的。可惜这个项目已于两年前停止更新，版本停留在0.3.0。好消息是大型职业社交网<a href="http://www.linkedin.com">LinkedIn</a>也了解到了这个模板的优点和潜力，并接手了Dust.js的后续开发，最终出来的就是现在的<a href="http://linkedin.github.io/dustjs/">Dust.js(LinkedIn)</a>，为了简便起见后面继续称之为Dust。经过不断地更新，Dust目前已经到了2.0版本了。</p>
+
+<h2></h2>
+
+<p>由于时间关系，我还是决定将真正的语法介绍留到下一篇文章了，敬请期待。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[前端模板的选择]]></title>

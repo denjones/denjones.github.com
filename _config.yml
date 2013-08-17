@@ -5,12 +5,12 @@
 # ----------------------- #
 
 url: http://blog.sprabbit.com
-title: 博客-SPRABBIT-超科学兔耳中队
+title: 博客 SPRABBIT 超科学兔耳中队
 subtitle: 中文同人社团
 author: 火雾宗师
-simple_search: http://www.baidu.com/s
+simple_search: http://www.google.com/s
 baidu_search: true
-description: 专注于游戏创新的中文同人社团 SPRABBIT 超科学兔耳中队
+description: 专注于游戏创新的中文动漫同人社团 SPRABBIT 超科学兔耳中队
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in

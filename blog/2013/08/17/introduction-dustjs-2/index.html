@@ -51,11 +51,11 @@
   
 </ul>
   
-<form action="http://www.google.com/s" method="get">
+<form action="http://www.google.com/search" method="get">
   <fieldset role="search">
 	
-	  <input type="hidden" name="wd" value="site:blog.sprabbit.com" />
-      <input class="search" type="text" name="wd" results="0" placeholder="Search"/>
+	  <input type="hidden" name="q" value="site:blog.sprabbit.com" />
+	  <input class="search" type="text" name="q" results="0" placeholder="Search"/>
 	
   </fieldset>
 </form>
@@ -138,14 +138,16 @@
 
 <p>在键名后面可以跟随过滤器，使用竖线分隔，一般用于选择处理“&lt;”，“>”等特殊符号的转义：</p>
 
-<pre><code>{name|s} 禁用自动转码
-{name|h} 强制使用HTML转码
-{name|j} 强制使用Javascript转码
-{name|u} 使用encodeURI编码
-{name|uc} 使用encodeURIComponent编码
-{name|js} 将JSON对象转换为字符串
-{name|jp} 将JSON 字符串转换为JSON对象
-</code></pre>
+<ul>
+<li>{name|s} 禁用自动转码</li>
+<li>{name|h} 强制使用HTML转码</li>
+<li>{name|j} 强制使用Javascript转码</li>
+<li>{name|u} 使用encodeURI编码</li>
+<li>{name|uc} 使用encodeURIComponent编码</li>
+<li>{name|js} 将JSON对象转换为字符串</li>
+<li>{name|jp} 将JSON 字符串转换为JSON对象</li>
+</ul>
+
 
 <p>过滤器也可以进行组合：</p>
 
@@ -154,12 +156,14 @@
 
 <p>一些特殊字符也可以键的形式直接取值输出：</p>
 
-<pre><code>{~n}    换行
-{~r}    CR换行
-{~lb}   左花括号
-{~rb}   右花括号
-{~s}    空格
-</code></pre>
+<ul>
+<li>{~n}  换行</li>
+<li>{~r}  CR换行</li>
+<li>{~lb}     左花括号</li>
+<li>{~rb}     右花括号</li>
+<li>{~s}  空格</li>
+</ul>
+
 
 <h2>区段（Section）</h2>
 
@@ -172,9 +176,11 @@
 
 <p>在区段中可以使用两个特殊的键：</p>
 
-<pre><code>{$idx}  表示当前迭代的序号（从0开始）
-{$len}  表示数组长度
-</code></pre>
+<ul>
+<li>{$idx}    表示当前迭代的序号（从0开始）</li>
+<li>{$len}    表示数组长度</li>
+</ul>
+
 
 <h2>上下文（Context）</h2>
 
@@ -401,6 +407,8 @@ var jiathis_config = {data_track_clickback:'true'};
         <a class="basic-alignment left" href="/blog/2013/08/16/introduction-dustjs-1/" title="Previous Post: Dust.js语法简介（一）">&laquo; Dust.js语法简介（一）</a>
       
       
+        <a class="basic-alignment right" href="/blog/2013/08/19/introduction-dustjs-3/" title="Next Post: Dust.js语法简介（三）">Dust.js语法简介（三） &raquo;</a>
+      
     </p>
 	
       <!-- UY BEGIN -->
@@ -423,6 +431,10 @@ var jiathis_config = {data_track_clickback:'true'};
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/08/19/introduction-dustjs-3/">Dust.js语法简介（三）</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/17/introduction-dustjs-2/">Dust.js语法简介（二）</a>
       </li>
     
@@ -436,10 +448,6 @@ var jiathis_config = {data_track_clickback:'true'};
     
       <li class="post">
         <a href="/blog/2013/08/13/game-server-to-front-end/">从游戏服务端到Web前端</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/17/android-moe-sicily/">Sicily Android 小应用</a>
       </li>
     
   </ul>

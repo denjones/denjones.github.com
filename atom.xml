@@ -4,7 +4,7 @@
   <title><![CDATA[博客 SPRABBIT 超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-08-17T21:08:20+08:00</updated>
+  <updated>2013-08-19T17:16:47+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火雾宗师]]></name>
@@ -12,6 +12,292 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dust.js语法简介（三）]]></title>
+    <link href="http://blog.sprabbit.com/blog/2013/08/19/introduction-dustjs-3/"/>
+    <updated>2013-08-19T15:53:00+08:00</updated>
+    <id>http://blog.sprabbit.com/blog/2013/08/19/introduction-dustjs-3</id>
+    <content type="html"><![CDATA[<p><a href="http://blog.sprabbit.com/blog/2013/08/17/introduction-dustjs-2/">上一篇</a>介绍了Dust的最基本的语法，已经足够应付一般的模板翻译。这一章将介绍一些涉及逻辑的Dust语法以及介绍如何在前端应用模板。</p>
+
+<!--more-->
+
+
+<h2>逻辑区段</h2>
+
+<h3>?标签</h3>
+
+<p>用<code>?</code>来代替区段标签中的<code>#</code>时，仅当<code>name</code>的值为真时，才执行区段主体部分。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{?name} body {/name}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>^标签</h3>
+
+<p>用<code>^</code>来代替<code>#</code>时，仅当<code>name</code>的值为假时，才执行区段主体部分。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{^name} body {/name}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>{:else}标签</h3>
+
+<p>当一个区段标签（包括<code>#</code>、<code>?</code>、<code>^</code>、以及逻辑标签等）的值为假时，若区段主体中包含{:else}标签，则执行<code>{:else}</code>标签以及区段结束标签之间的内容，否则忽略这些内容。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>{#friends}
+</span><span class='line'>  <span class="nt">&lt;li&gt;</span>{name}, {age}{~n}<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>{:else}
+</span><span class='line'>  <span class="nt">&lt;p&gt;</span>You have no friends!<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>{/friends}
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>若friend为空，则仅仅输出：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;p&gt;</span>You have no friends!<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>值的真假</h3>
+
+<p>在区段中判断标签的真假的方法与Javascript本身稍有不同，Dust将以下值判断为假：</p>
+
+<ul>
+<li>空字符串<code>’’</code>、<code>””</code></li>
+<li>布尔<code>false</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+<li>空列表<code>[]</code></li>
+</ul>
+
+
+<p>其余值均为真值，包括数字“0”，空对象<code>{}</code>。</p>
+
+<h2>拆分（Partials）</h2>
+
+<p>拆分是一种将重复使用的模板抽取出来，并在使用到这段模板的模板中直接导入该模板，避免重复劳动的方法。在服务端，一个名为“xxx”的Dust模板通常通常保存在一个名为xxx.dust的模板文件中。我们可以利用模板名来在模板中插入一段来自其他模版文件的模板：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{&gt;name /}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上是一个自封闭的区段标签，代表将name.dust中的模版插入到当前位置。若文件包含路径，则用双引号包裹：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{&gt;”dust/name” /}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>标签中也可以填写参数：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{&gt;”dust/name” foo=”Hello” bar=” World”/}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>甚至可以使用动态路径：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{&gt;”dust/{pathName}” /}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>区块（Blocks）</h2>
+
+<p>通过拆分可以重用一个模版，但是用这种方法来派生模版有一个缺点，就是你需要记得需要在什么位置插入哪个模版，并且对每一个派生出来的模版都要重新布局一次。区块可以解决这个问题，在父模板中使用区块可以方便地在子模板中替换区块中的内容。区块也是一种特殊的区段，定义方法如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{+name /}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>或者在区段中填写默认内容，当区块没有被替换时，将显示默认内容：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{+name}default Content{/name}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用区块替换需要在子模板中使用拆分区段（<code>&gt;</code>）导入父模板，并使用替换区段（<code>&lt;</code>）进行替换：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{&gt;father/}
+</span><span class='line'>{<span class="nt">&lt;name</span><span class="err">}</span><span class="na">Content</span><span class="err">{/</span><span class="na">name</span><span class="err">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>比如一个父模板可以写成这样：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>{+pageHeader}PayPal{/pageHeader}<span class="nt">&lt;/h&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;bodyContent&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>          {+bodyContent/}
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;footer&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  {+pageFooter}Contact Us {/pageFooter}
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后保存为shared/base_template.dust文件，然后定义子模板：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{! 首先导入父模板 !}
+</span><span class='line'>{&gt;&quot;shared/base_template&quot;/}
+</span><span class='line'>
+</span><span class='line'>{! 然后定义对应的部分 !}
+</span><span class='line'>{<span class="nt">&lt;bodyContent</span><span class="err">}</span>
+</span><span class='line'><span class="err">&lt;</span><span class="na">p</span><span class="nt">&gt;</span>These are your current settings:<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;</span>xxxx<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;</span>yyy<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>{/bodyContent}
+</span><span class='line'>{<span class="nt">&lt;pageFooter</span><span class="err">}</span>
+</span><span class='line'>       <span class="err">&lt;</span><span class="na">hr</span><span class="nt">&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/contactUs&quot;</span><span class="nt">&gt;</span>About Us<span class="nt">&lt;/a&gt;</span> |
+</span><span class='line'>       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/contactUs&quot;</span><span class="nt">&gt;</span>Contact Us<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>{/pageFooter}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>应用Dust模板</h2>
+
+<p>至此，Dust自带的基本功能语法已经介绍完毕，目前大家可能只在测试器中使用过模板，以下将介绍如何直接在前端中应用模板。</p>
+
+<h3>编译</h3>
+
+<p>之前也介绍过，Dust是编译型模板，意思则是若需应用模板，首先要将模板可执行化，即将模板变成可执行的代码。如果你使用过Dust测试器，那么你会发现在你输入模板后，会在2号框中显示一个函数定义，那就是编译生成的代码。使用编译型模板有一个好处，就是当模板编译好之后，若需要重复使用模板，不需要每次都对模板重新进行分析，加快模板解析的速度，而且，模板可以预先编译好保存在服务器，甚至让前端连第一次编译的时间都节省了。</p>
+
+<p>因此Dust库有两种发行版本：</p>
+
+<ul>
+<li>dust-core-2.0.2.js</li>
+<li>dust-full-2.0.2.js</li>
+</ul>
+
+
+<p>前者为核心（Core）版本，其只包含模板解析的相关代码，大小只有十几k，而完全版（Full）则包含Dust的所有代码，包括编译器，大小有一百多k。对于不需要在前端进行编译的项目，仅仅需要使用核心版本即可，这也是速度比较快的做法。但是对于需要在前端动态编译的项目，则只能使用包含编译器的完全版。</p>
+
+<p>编译模板的方法很简单，使用完全版的dust.compile()方法：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">compiled</span> <span class="o">=</span> <span class="nx">dust</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="s2">&quot;Hello {name}!&quot;</span><span class="p">,</span> <span class="s2">&quot;intro&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其中第一个参数为模板字符串，第二个参数为模板名，函数将返回包含编译好的可执行代码的字符串。这个操作不会注册这个模板，仅进行编译，此时仍不可通过模板名来调用这段代码。</p>
+
+<h3>注册</h3>
+
+<p>如果直接执行一遍compiled中的代码，则模板会按之前指定的名字注册到dust，从而可以通过模板名来调用该模板。但若compiled代码未被执行过，则需要在渲染前手动将其注册到dust中，注册的方法很简单：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dust</span><span class="p">.</span><span class="nx">loadSource</span><span class="p">(</span><span class="nx">compiled</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>渲染</h3>
+
+<p>通过编译注册可以让多套模板处于就绪状态，对于这些模板，我们可以直接用它将JSON对象渲染成HTML文本，通过调用dust.render()方法。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">dust</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s2">&quot;intro&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Fred&quot;</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">out</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">out</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这个方法接受3个参数，第一个为模板名，第二个为JSON对象，第三个是一个接受两个参数的回调函数。执行这个方法后Dust会使用注册好的对应模板对JSON对象进行处理，得出一个渲染结果字符串，然后调用回调函数，其中第一个参数包含了在处理过程中出现的错误信息，第二个参数就是渲染结果字符串。一般会在回调函数中将渲染结果插入到当前的DOM结构中，以便在浏览器中显示渲染结果。</p>
+
+<h3>区块和拆分</h3>
+
+<p>一般使用文件来保存模板并且使用区块和拆分是让Dust作为服务端模板时应用的技术，因为在客户端Javascript中无法很方便地对分布式文件进行操作。但是我们可以通过在本地部署模板数据，编译成可执行代码并用一个js文件来保存的方式来使用区块和拆分。</p>
+
+<p>若在Linux平台则直接在终端安装npm和dust并使用dustc命令编译成代码，得到js文件。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>npm install dustjs-linkedin
+</span><span class='line'><span class="nv">$ </span>dustc input.dust output.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>或者在js引擎中使用dust.compile()，将模板复制到第一个参数，指定第二参数为其不带后缀的文件名，并将结果输出到js文件。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">output1</span> <span class="o">=</span> <span class="nx">dust</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">partialStr</span><span class="p">,</span> <span class="s2">&quot;partial&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">output2</span> <span class="o">=</span> <span class="nx">dust</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">baseStr</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">output3</span> <span class="o">=</span> <span class="nx">dust</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">childStr</span><span class="p">,</span> <span class="s2">&quot;child&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最后在HTML中导入所有生成的js文件即可使用。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;partial.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;base.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;child.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>注意此时不再需要使用dust.loadSource()来注册，因为script标签将js文件执行了一次，已经将模板注册好了。此时已可使用dust.render()进行渲染。</p>
+
+<h2>结语</h2>
+
+<p>至此，我们已经可以在前端中使用模板了，但是还有一些高级功能这里并未涉及，包括<code>@</code>辅助标签以及自定义扩展标签，如果有动力写Dust.js语法简介（四）的话，我将会在那介绍。除此之外，这里只提供了在Linux编译模板的一些官方方法，若需要在Windows下编译模板，则比较麻烦，有机会再写一篇如何在Windows下编译模板的教程吧。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dust.js语法简介（二）]]></title>
@@ -56,14 +342,16 @@
 
 <p>在键名后面可以跟随过滤器，使用竖线分隔，一般用于选择处理“&lt;”，“>”等特殊符号的转义：</p>
 
-<pre><code>{name|s} 禁用自动转码
-{name|h} 强制使用HTML转码
-{name|j} 强制使用Javascript转码
-{name|u} 使用encodeURI编码
-{name|uc} 使用encodeURIComponent编码
-{name|js} 将JSON对象转换为字符串
-{name|jp} 将JSON 字符串转换为JSON对象
-</code></pre>
+<ul>
+<li>{name|s} 禁用自动转码</li>
+<li>{name|h} 强制使用HTML转码</li>
+<li>{name|j} 强制使用Javascript转码</li>
+<li>{name|u} 使用encodeURI编码</li>
+<li>{name|uc} 使用encodeURIComponent编码</li>
+<li>{name|js} 将JSON对象转换为字符串</li>
+<li>{name|jp} 将JSON 字符串转换为JSON对象</li>
+</ul>
+
 
 <p>过滤器也可以进行组合：</p>
 
@@ -72,12 +360,14 @@
 
 <p>一些特殊字符也可以键的形式直接取值输出：</p>
 
-<pre><code>{~n}    换行
-{~r}    CR换行
-{~lb}   左花括号
-{~rb}   右花括号
-{~s}    空格
-</code></pre>
+<ul>
+<li>{~n}  换行</li>
+<li>{~r}  CR换行</li>
+<li>{~lb}     左花括号</li>
+<li>{~rb}     右花括号</li>
+<li>{~s}  空格</li>
+</ul>
+
 
 <h2>区段（Section）</h2>
 
@@ -90,9 +380,11 @@
 
 <p>在区段中可以使用两个特殊的键：</p>
 
-<pre><code>{$idx}  表示当前迭代的序号（从0开始）
-{$len}  表示数组长度
-</code></pre>
+<ul>
+<li>{$idx}    表示当前迭代的序号（从0开始）</li>
+<li>{$len}    表示数组长度</li>
+</ul>
+
 
 <h2>上下文（Context）</h2>
 

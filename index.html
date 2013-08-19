@@ -9,7 +9,7 @@
   <meta name="author" content="火雾宗师">
 
   
-  <meta name="description" content="从这篇文章开始我将介绍Dust的语法，其实内容基本上和Dust的Tutorial差不多，可能还要简化一点。 ">
+  <meta name="description" content="上一篇介绍了Dust的最基本的语法，已经足够应付一般的模板翻译。这一章将介绍一些涉及逻辑的Dust语法以及介绍如何在前端应用模板。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -51,11 +51,11 @@
   
 </ul>
   
-<form action="http://www.google.com/s" method="get">
+<form action="http://www.google.com/search" method="get">
   <fieldset role="search">
 	
-	  <input type="hidden" name="wd" value="site:blog.sprabbit.com" />
-      <input class="search" type="text" name="wd" results="0" placeholder="Search"/>
+	  <input type="hidden" name="q" value="site:blog.sprabbit.com" />
+	  <input class="search" type="text" name="q" results="0" placeholder="Search"/>
 	
   </fieldset>
 </form>
@@ -74,6 +74,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/19/introduction-dustjs-3/">Dust.js语法简介（三）</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-19T15:53:00+08:00" pubdate data-updated="true">13年08月19日</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="/blog/2013/08/17/introduction-dustjs-2/">上一篇</a>介绍了Dust的最基本的语法，已经足够应付一般的模板翻译。这一章将介绍一些涉及逻辑的Dust语法以及介绍如何在前端应用模板。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/08/19/introduction-dustjs-3/">阅读全文 &rarr;</a>
+    </footer>
+  
+
+    </article>
   
   
     <article>
@@ -493,54 +533,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/23/octopress/">关于在64位 Windows 7 中部署中文化的Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-23T15:52:00+08:00" pubdate data-updated="true">12年03月23日</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote>
-前言——可以在Linux环境下部署的话，还是尽可能在Linux下部署吧&#8230;
-</blockquote>
-
-
-<p>真的不是开玩笑的，除非你像我一样喜欢折腾。即使没有Linux系统，能够运行虚拟机的话，装个虚拟的Linux系统也比直接在Windows中部署要简单。</p>
-
-<p>一般的安装步骤，在<a href="http://octopress.org/docs/">Octopress的文檔</a>中就有详细的说明。而在Windows 7中部署，则可参考<a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/">Sinosmond的一篇文章</a>。
-具体的部署过程，我就不再重复了，只是在部署过程中有几点是需要注意的。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/03/23/octopress/">阅读全文 &rarr;</a>
-    </footer>
-  
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; 上页</a>
@@ -558,11 +550,11 @@
 <section>
   <h1>文章分类</h1>
   <ul id="categories">
-	<li class='category'><a href='/blog/categories/javascript/'>Javascript (3)</a></li>
+	<li class='category'><a href='/blog/categories/javascript/'>Javascript (4)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>Octopress (2)</a></li>
 <li class='category'><a href='/blog/categories/works/'>作品 (4)</a></li>
 <li class='category'><a href='/blog/categories/doujin/'>同人 (4)</a></li>
-<li class='category'><a href='/blog/categories/technique/'>技术 (7)</a></li>
+<li class='category'><a href='/blog/categories/technique/'>技术 (8)</a></li>
 <li class='category'><a href='/blog/categories/talk/'>杂谈 (1)</a></li>
 <li class='category'><a href='/blog/categories/circle/'>社团 (6)</a></li>
 <li class='category'><a href='/blog/categories/essay/'>随笔 (2)</a></li>
@@ -601,6 +593,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/08/19/introduction-dustjs-3/">Dust.js语法简介（三）</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/17/introduction-dustjs-2/">Dust.js语法简介（二）</a>
       </li>
     
@@ -614,10 +610,6 @@
     
       <li class="post">
         <a href="/blog/2013/08/13/game-server-to-front-end/">从游戏服务端到Web前端</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/17/android-moe-sicily/">Sicily Android 小应用</a>
       </li>
     
   </ul>

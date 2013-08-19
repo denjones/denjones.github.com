@@ -4,7 +4,7 @@
   <title><![CDATA[文章分类: Javascript | 博客 SPRABBIT 超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-08-19T17:16:47+08:00</updated>
+  <updated>2013-08-19T18:00:31+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火雾宗师]]></name>
@@ -265,6 +265,15 @@ var output3 = dust.compile(childStr, "child");
 <h2>结语</h2>
 
 <p>至此，我们已经可以在前端中使用模板了，但是还有一些高级功能这里并未涉及，包括<code>@</code>辅助标签以及自定义扩展标签，如果有动力写Dust.js语法简介（四）的话，我将会在那介绍。除此之外，这里只提供了在Linux编译模板的一些官方方法，若需要在Windows下编译模板，则比较麻烦，有机会再写一篇如何在Windows下编译模板的教程吧。</p>
+
+<h2>文章链接</h2>
+
+<ul>
+<li><a href="/blog/2013/08/16/introduction-dustjs-1">Dust.js语法简介（一）</a></li>
+<li><a href="/blog/2013/08/17/introduction-dustjs-2">Dust.js语法简介（二）</a></li>
+<li><a href="/blog/2013/08/19/introduction-dustjs-3">Dust.js语法简介（三）</a></li>
+</ul>
+
 ]]></content>
   </entry>
   
@@ -490,6 +499,15 @@ Hi Bob Good to see you
 <h2></h2>
 
 <p>至此，我们已经可以简单地将模板付诸应用了。下一节将介绍一些逻辑相关的语法。</p>
+
+<h2>文章链接</h2>
+
+<ul>
+<li><a href="/blog/2013/08/16/introduction-dustjs-1">Dust.js语法简介（一）</a></li>
+<li><a href="/blog/2013/08/17/introduction-dustjs-2">Dust.js语法简介（二）</a></li>
+<li><a href="/blog/2013/08/19/introduction-dustjs-3">Dust.js语法简介（三）</a></li>
+</ul>
+
 ]]></content>
   </entry>
   
@@ -570,6 +588,15 @@ result += '</ul>'
 <h2></h2>
 
 <p>由于时间关系，我还是决定将真正的语法介绍留到下一篇文章了，敬请期待。</p>
+
+<h2>文章链接</h2>
+
+<ul>
+<li><a href="/blog/2013/08/16/introduction-dustjs-1">Dust.js语法简介（一）</a></li>
+<li><a href="/blog/2013/08/17/introduction-dustjs-2">Dust.js语法简介（二）</a></li>
+<li><a href="/blog/2013/08/19/introduction-dustjs-3">Dust.js语法简介（三）</a></li>
+</ul>
+
 ]]></content>
   </entry>
   

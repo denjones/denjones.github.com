@@ -1,25 +1,14 @@
-
-*{
-	margin:0;
-	padding:0;
-	border: 0;
-}
-
-body{
-	background-color: white;
-}
-
-#home{
-	width: 402px;
-	margin:30px auto;
-}
-
-#photo{
+#photo,#photo2,#photo3{
 	padding: 0;
 	width:400px;
 	height:400px;	
 	border: solid gray 1px;
 	background-color: #111;
+	margin: 0 auto 20px auto;
+}
+
+#photo img,#photo2 img,#photo3 img{
+	border: 0;
 }
 
 #crop{
@@ -32,13 +21,15 @@ body{
 
 .image-crop-selection-box{
 	border: 1px gray solid;
-	background: url('../images/transparent.png');
+	background: url(about:blank);
+}
+
+.image-crop-selection-box2{
+	border: 1px gray solid;
 }
 
 .image-crop-filter{
 	background-color: black;
-	/*opacity: 0.5;
-	filter:alpha(opacity=50);*/
 	-webkit-filter: blur(3px);
 	-moz-filter: blur(3px);
 	-o-filter: blur(3px);

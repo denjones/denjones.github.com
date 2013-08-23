@@ -4,7 +4,7 @@
   <title><![CDATA[文章分类: 技术 | 博客 SPRABBIT 超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/technique/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-08-23T19:50:38+08:00</updated>
+  <updated>2013-08-23T21:03:58+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火雾宗师]]></name>
@@ -94,8 +94,34 @@ if ( e.preventDefault ) {</p>
 不过在图片上拖拽元素这个可能就比较少实现。
 一个比较常见的应用就是截图插件：</p>
 
-<div id="photo"> </div>
+<div id="photo">
+    <img id="scene" src="/images/jsmemo/scene.jpg" alt="scene"/> 
+</div>
 
+
+<p>如果你想做出来选中内容跟未选中内容表现得不一样的效果，如上面的模糊与清晰的差别，那么很幸运，你将不会遇到奇怪的问题。
+一旦你选择做出下面这种没有差别的效果，那就跪了，在IE你几乎无法移动那个小框（点小框的边框就可以）。</p>
+
+<div id="photo2">
+    <img id="scene2" src="/images/jsmemo/scene.jpg" alt="scene"/> 
+</div>
+
+
+<p>一开始我百思不得其解，因为点选框内，却产生了默认拖拽图片的操作，于是按上面的方法来修改onmouse事件，却无效。
+最令人想不明白的是，明明小框显示在图片之上，为什么图片反而拦截到了点击事件？</p>
+
+<p>其实答案却非常简单，只要仔细想想为什么点小框的边框就可以移动就明白了，点小框可以移动，证明小框获取消息的等级确实是比背景图要高。
+而点击中间部分却无法移动，因为我们没有点到小框上的任何东西！是真的没有任何东西，直接穿透了小框，点到了图片上。
+然后你就会发现，在IE中，原来元素里面没有任何东西，包括背景的话，点击的消息传递时是会直接跳过这个元素的。
+IE在这里耍了点小聪明，以为这样可以方便消息的穿透，谁知道却适得其反。
+不过好在解决方法是简单的，希望保持透明的话，加一层透明的背景就行了，这就不是没内容，而只是内容看不见而已。</p>
+
+<div id="photo3">
+    <img id="scene3" src="/images/jsmemo/scene.jpg" alt="scene"/> 
+</div>
+
+
+<p>而第一个效果分离的截图插件之所以不会遇到问题是因为这种效果一般是在小框内再包含一幅图像来实现的，就不再是透明的小框了。</p>
 ]]></content>
   </entry>
   

@@ -63,7 +63,8 @@
 				filterObj.prepend(imgObj); 
 				imgObj.css({
 					'border' : '0',
-					'float': 'left'
+					'float': 'left',
+					'max-width': '1000%',
 				});
 					
 				var imgWidth = imgObj.width();
@@ -71,7 +72,7 @@
 				imageCrop.originWidth = imgWidth;
 				imageCrop.originHeight = imgHeight;
 				var deltaWidth = selfWidth - imgWidth;
-				var deltaHeight = selfHeight - imgHeight;				
+				var deltaHeight = selfHeight - imgHeight;
 				
 				// 缩放图像以及画布
 				if (deltaWidth > deltaHeight) {
@@ -99,19 +100,21 @@
 					'float': 'left'
 				});
 				
-				// 拷贝一个到截图框中
-				imageCrop.innerImgObj = new Image();
-				var cropImg = $(imageCrop.innerImgObj);
-				cropImg.attr('src', imgObj.attr('src'));
-				cropImg.css({ 
-					'border' : '0',
-					'float': 'left',
-					'position': 'absolute',
-					'max-width': '1000%',
-				});
-				cropObj.prepend(cropImg);				
-				cropImg.width(imgWidth);
-				cropImg.height(imgHeight);
+				if (imageCrop.settings.seprateEffect) {
+					// 拷贝一个到截图框中
+					imageCrop.innerImgObj = new Image();
+					var cropImg = $(imageCrop.innerImgObj);
+					cropImg.attr('src', imgObj.attr('src'));
+					cropImg.css({ 
+						'border' : '0',
+						'float': 'left',
+						'position': 'absolute',
+						'max-width': '1000%',
+					});
+					cropObj.prepend(cropImg);				
+					cropImg.width(imgWidth);
+					cropImg.height(imgHeight);
+				}
 				
 				// 使用叠加多层半透明图片模拟模糊效果
 				if (imageCrop.settings.blur) {
@@ -126,8 +129,6 @@
 						var newImgObj = $(new Image());
 						filterObj.append(newImgObj);
 						newImgObj.attr('src', imgObj.attr('src'));
-						newImgObj.width(imgWidth);
-						newImgObj.height(imgHeight);
 						newImgObj.css({
 							'border' : '0',
 							'position': 'absolute',
@@ -135,7 +136,10 @@
 							'left': -2 + i/5,
 							'opacity': '0.1',
 							'filter': 'alpha(opacity=10)',
+							'max-width': '1000%',
 						});
+						newImgObj.width(imgWidth);
+						newImgObj.height(imgHeight);						
 					}
 				}				
 			};
@@ -206,13 +210,13 @@
 		cropObj = $(this.cropObj);
 		cropObj.width(this.settings.defaultCropWidth);
 		cropObj.height(this.settings.defaultCropHeight);
+		cropObj.addClass(this.settings.defaultCropClass);
 		cropObj.css({
 			'position': 'absolute',
 			'float': 'left',
 			'overflow': 'hidden',
-			'border': this.settings.defaultCropBorderWidth + 'px solid gray',
-		});
-		cropObj.addClass(this.settings.defaultCropClass);
+			'border-width': this.settings.defaultCropBorderWidth + 'px',
+		});		
 		cropObj.resizable({ 
 			handles: 'e, s, se', 
 			stop: (function(imageCrop) {
@@ -226,13 +230,15 @@
 			containment: "parent",
 			drag: (function(imageCrop) {				
 				return function(event, ui) {
-					// 调整拖动时框内图片的坐标
-					$(imageCrop.innerImgObj).css({
-						'top': -ui.position.top - 
-							imageCrop.settings.defaultCropBorderWidth + 'px',
-						'left': -ui.position.left - 
-							imageCrop.settings.defaultCropBorderWidth + 'px',
-					}); 
+					if (imageCrop.settings.seprateEffect) {
+						// 调整拖动时框内图片的坐标
+						$(imageCrop.innerImgObj).css({
+							'top': -ui.position.top - 
+								imageCrop.settings.defaultCropBorderWidth + 'px',
+							'left': -ui.position.left - 
+								imageCrop.settings.defaultCropBorderWidth + 'px',
+						}); 
+					}
 				};
 			})(this),
 			stop: (function(imageCrop) {
@@ -356,5 +362,6 @@
 		'defaultCropClass': 'image-crop-selection-box', // 裁剪层的类名
 		'defaultFilterClass': 'image-crop-filter', // 滤镜层的类名
 		'blur': false, // 是否模拟模糊滤镜
+		'seprateEffect': true, // 是否让选中框中的图像为源图像
 	};
 })(jQuery);

@@ -4,7 +4,7 @@
   <title><![CDATA[文章分类: Javascript | 博客 SPRABBIT 超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-08-19T18:00:31+08:00</updated>
+  <updated>2013-08-23T19:50:38+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火雾宗师]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript奇技淫巧之（一）]]></title>
+    <link href="http://blog.sprabbit.com/blog/2013/08/22/javascript-memo-1/"/>
+    <updated>2013-08-22T20:21:00+08:00</updated>
+    <id>http://blog.sprabbit.com/blog/2013/08/22/javascript-memo-1</id>
+    <content type="html"><![CDATA[<p>这个系列只是一个备忘录，主要是讲述平时编程遇到的一些奇怪的问题。
+其实这种奇怪的问题一般都出在IE上，所以重点就放在IE上了。</p>
+
+<p>这次的主题是图片拖拽的问题，主要情景有几种，第一种是可以在网页上面拖拽的图片，另一种是在可拖动的元素下面有一张图。
+当然还有一种是浏览器默认的图片拖拽，使用浏览器默认的图片拖拽可以直接将图片拖出浏览器，在新网页中打开，或者拖到其他软件中处理。
+但是，往往我们都不希望出现默认的情况，尤其是想制造出前面两种效果的时候。</p>
+
+<!--more-->
+
+
+<h2>可以在网页上面拖拽的图片</h2>
+
+<p>下面这里有一个例子:</p>
+
+<div class="photo">
+    <img class="photo_drag" src="/images/jsmemo/enako.jpg" alt="enako" />
+</div>
+
+
+<p>点击图片可以拖动，如果你在IE之外支持canvas的浏览器中打开，还会有旋转的效果。
+但是，如果只添加了拖动相关的代码的话，一开始会是下面这样：</p>
+
+<div class="photo">
+    <img src="/images/jsmemo/enako.jpg" alt="enako" />
+</div>
+
+
+<p>没错，就跟没添加没什么区别（实际上我懒得再写一份没做处理的javascript了，所以上面这个确实没添加-_-|||，嘛效果是一样的）。</p>
+
+<p>好了，区别在于前者在处理在图片上的<code>mousedown</code>事件时，做了如下操作:</p>
+
+<p><code>javascript
+e.preventDefault();
+e.stopPropagation();
+</code></p>
+
+<p><code>e</code>是传进jQuery事件处理函数的jQuery事件参数，前者阻止了浏览器使用默认方法对事件的处理，后者阻止事件冒泡。
+于是事件传递到此结束，浏览器也就不会产生拖拽图片的操作。
+其他浏览器事件都支持preventDefault()方法，IE是比较奇淫的，通过返回值来判断是否执行默认操作。
+所以jQuery事件的preventDefault()方法类似下面：</p>
+
+<p>``` javascript
+var e = this.originalEvent;</p>
+
+<p>this.isDefaultPrevented = returnTrue;
+if ( !e ) {</p>
+
+<pre><code>return;
+</code></pre>
+
+<p>}</p>
+
+<p>// If preventDefault exists, run it on the original event
+if ( e.preventDefault ) {</p>
+
+<pre><code>e.preventDefault();
+</code></pre>
+
+<p>// Support: IE
+// Otherwise set the returnValue property of the original event to false
+} else {</p>
+
+<pre><code>e.returnValue = false;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>而停止冒泡基本就是方法名不一样了。</p>
+
+<h2>可以在图片上面拖拽的元素</h2>
+
+<p>上面的解决方案可能很多人都知道。
+不过在图片上拖拽元素这个可能就比较少实现。
+一个比较常见的应用就是截图插件：</p>
+
+<div id="photo"> </div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dust.js语法简介（三）]]></title>

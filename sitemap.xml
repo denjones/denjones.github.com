@@ -2,74 +2,78 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://blog.sprabbit.com/blog/2011/07/26/predestined/</loc>
-        <lastmod>2013-08-13T11:48:51+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2012/03/17/new-blog/</loc>
-        <lastmod>2013-08-13T11:48:51+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2012/03/23/octopress/</loc>
-        <lastmod>2013-08-13T11:48:51+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2012/03/25/shake-magical-girls/</loc>
-        <lastmod>2013-08-13T11:48:51+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2012/04/07/sicily/</loc>
-        <lastmod>2013-08-13T11:48:51+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2012/12/21/recover-octopress/</loc>
-        <lastmod>2013-08-13T15:25:39+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2013/01/17/about-speshow/</loc>
-        <lastmod>2013-08-13T15:12:39+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2013/01/17/android-moe-sicily/</loc>
-        <lastmod>2013-08-13T11:48:51+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2013/08/13/game-server-to-front-end/</loc>
-        <lastmod>2013-08-13T21:37:22+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2013/08/15/introduction-client-template/</loc>
-        <lastmod>2013-08-15T21:51:18+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2013/08/16/introduction-dustjs-1/</loc>
-        <lastmod>2013-08-19T17:59:38+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2013/08/17/introduction-dustjs-2/</loc>
-        <lastmod>2013-08-19T17:59:05+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/2013/08/19/introduction-dustjs-3/</loc>
-        <lastmod>2013-08-19T17:55:57+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.sprabbit.com/blog/2013/08/22/javascript-memo-1/</loc>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/about/</loc>
-        <lastmod>2013-08-13T15:22:02+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/blog/archives/</loc>
-        <lastmod>2013-08-19T17:59:38+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/circle/</loc>
-        <lastmod>2013-08-13T11:48:51+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/</loc>
-        <lastmod>2013-08-19T17:59:38+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://blog.sprabbit.com/technique/</loc>
-        <lastmod>2013-08-13T11:48:51+08:00</lastmod>
+        <lastmod>2013-08-23T19:49:29+08:00</lastmod>
     </url>
 </urlset>

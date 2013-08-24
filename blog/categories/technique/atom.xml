@@ -4,7 +4,7 @@
   <title><![CDATA[文章分类: 技术 | 博客 SPRABBIT 超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/technique/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-08-23T21:03:58+08:00</updated>
+  <updated>2013-08-24T13:23:25+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火雾宗师]]></name>
@@ -122,6 +122,14 @@ IE在这里耍了点小聪明，以为这样可以方便消息的穿透，谁知
 
 
 <p>而第一个效果分离的截图插件之所以不会遇到问题是因为这种效果一般是在小框内再包含一幅图像来实现的，就不再是透明的小框了。</p>
+
+<h2>总结</h2>
+
+<p>其实这里还有一个技巧，就是实现模糊效果的方法。
+目前只有Chrome支持高斯模糊滤镜，为了在其他浏览器实现模糊效果，只能进行模拟。
+我们知道高斯模糊可以通过横向模糊加纵向模糊叠加实现，于是我们就可以用多张半透明图像进行错位叠加实现。</p>
+
+<p>总而言之，在做前端开发中会遇到很多神奇的问题，以后我将一一记录在这里。另外吐槽一下，IE你为什么那么傲娇啊，看到IE就想哭啊有木有啊。</p>
 ]]></content>
   </entry>
   

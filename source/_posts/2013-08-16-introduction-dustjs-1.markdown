@@ -68,3 +68,8 @@ Dustjs、dust.js或者直接叫Dust，是一种模板，一开始是由[Aleksand
 ## 
 
 由于时间关系，我还是决定将真正的语法介绍留到下一篇文章了，敬请期待。
+
+##文章链接
+- [Dust.js语法简介（一）]({{site_root}}/blog/2013/08/16/introduction-dustjs-1)
+- [Dust.js语法简介（二）]({{site_root}}/blog/2013/08/17/introduction-dustjs-2)
+- [Dust.js语法简介（三）]({{site_root}}/blog/2013/08/19/introduction-dustjs-3)

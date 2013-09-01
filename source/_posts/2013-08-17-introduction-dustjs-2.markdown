@@ -43,13 +43,13 @@ Dust模板以一种嵌入到HTML中的标签的形式存在。Dust标签使用�
 
 在键名后面可以跟随过滤器，使用竖线分隔，一般用于选择处理“<”，“>”等特殊符号的转义：
 
-	{name|s} 禁用自动转码
-	{name|h} 强制使用HTML转码
-	{name|j} 强制使用Javascript转码
-	{name|u} 使用encodeURI编码
-	{name|uc} 使用encodeURIComponent编码
-	{name|js} 将JSON对象转换为字符串
-	{name|jp} 将JSON 字符串转换为JSON对象
+- {name|s} 禁用自动转码
+- {name|h} 强制使用HTML转码
+- {name|j} 强制使用Javascript转码
+- {name|u} 使用encodeURI编码
+- {name|uc} 使用encodeURIComponent编码
+- {name|js} 将JSON对象转换为字符串
+- {name|jp} 将JSON 字符串转换为JSON对象
 
 过滤器也可以进行组合：
 	
@@ -57,11 +57,11 @@ Dust模板以一种嵌入到HTML中的标签的形式存在。Dust标签使用�
 	
 一些特殊字符也可以键的形式直接取值输出：
 
-	{~n}	换行
-	{~r} 	CR换行
-	{~lb} 	左花括号
-	{~rb} 	右花括号
-	{~s} 	空格
+- {~n}	换行
+- {~r} 	CR换行
+- {~lb} 	左花括号
+- {~rb} 	右花括号
+- {~s} 	空格
 
 	
 ##区段（Section）
@@ -74,8 +74,8 @@ Dust模板以一种嵌入到HTML中的标签的形式存在。Dust标签使用�
 
 在区段中可以使用两个特殊的键：
 
-	{$idx}	表示当前迭代的序号（从0开始）
-	{$len}	表示数组长度
+- {$idx}	表示当前迭代的序号（从0开始）
+- {$len}	表示数组长度
 
 	
 ##上下文（Context）
@@ -207,3 +207,8 @@ Hi Bob Good to see you
 ## 
 
 至此，我们已经可以简单地将模板付诸应用了。下一节将介绍一些逻辑相关的语法。
+
+##文章链接
+- [Dust.js语法简介（一）]({{site_root}}/blog/2013/08/16/introduction-dustjs-1)
+- [Dust.js语法简介（二）]({{site_root}}/blog/2013/08/17/introduction-dustjs-2)
+- [Dust.js语法简介（三）]({{site_root}}/blog/2013/08/19/introduction-dustjs-3)

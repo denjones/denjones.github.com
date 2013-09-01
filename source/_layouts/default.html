@@ -9,6 +9,9 @@
     </div>
   </div>
   <footer role="contentinfo">{% include footer.html %}</footer>
-  {% include after_footer.html %}
+  {% include after_footer.html %}  
+  {% for js in page.javascript %}
+  <script type="text/javascript" src="{{ root_url }}/javascripts/{{ js }}" ></script>
+  {% endfor %}
 </body>
 </html>

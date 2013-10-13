@@ -4,7 +4,7 @@
   <title><![CDATA[文章分类: Javascript | 博客 SPRABBIT 超科学兔耳中队]]></title>
   <link href="http://blog.sprabbit.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://blog.sprabbit.com/"/>
-  <updated>2013-10-13T11:30:09+08:00</updated>
+  <updated>2013-10-13T11:31:46+08:00</updated>
   <id>http://blog.sprabbit.com/</id>
   <author>
     <name><![CDATA[火雾宗师]]></name>
@@ -14,11 +14,12 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Javascript奇技淫巧之（一）]]></title>
+    <title type="html"><![CDATA[Javascript备忘]]></title>
     <link href="http://blog.sprabbit.com/blog/2013/08/22/javascript-memo-1/"/>
     <updated>2013-08-22T20:21:00+08:00</updated>
     <id>http://blog.sprabbit.com/blog/2013/08/22/javascript-memo-1</id>
     <content type="html"><![CDATA[<p>这个系列只是一个备忘录，主要是讲述平时编程遇到的一些奇怪的问题。
+本来标题叫做Javascript奇技淫巧系列，但是现在我又被掉往服务端开发了，所以这个系列可能会不再更新，于是改回Javascript备忘。
 其实这种奇怪的问题一般都出在IE上，所以重点就放在IE上了。</p>
 
 <p>这次的主题是图片拖拽的问题，主要情景有几种，第一种是可以在网页上面拖拽的图片，另一种是在可拖动的元素下面有一张图。

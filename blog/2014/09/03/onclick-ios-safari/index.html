@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>超科学兔耳中队的博客 - 博客 SPRABBIT 超科学兔耳中队</title>
+  <title>IOS Safari 浏览器的点击事件问题 - 博客 SPRABBIT 超科学兔耳中队</title>
   <meta name="author" content="火雾宗师">
 
   
-  <meta name="description" content="架设了N久，终于把博客架设上去了。作为SPRabbit的博客，除了有一般作品的发布，还有少部份将会是SPRabbit的技术文章。这将会和很多其他社团的网站架构有所区别，因为SPRabbit除了作为同人社团进行同人创作，还作为一个技术团队，进行技术上的研究与开发。 关于本Blog的更多信息，可以在“ &hellip;">
+  <meta name="description" content="今天碰到一个问题，在IOS的Safari浏览器中，一个网页的div元素在绑定了click事件后点击时有变暗的闪烁。在其他浏览器均无出现此现象，即使是桌面的Safari也没有。 我于是清空了click事件中的所有代码，仍然会出现此状况，但是直接去掉时间绑定则不会变暗， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.sprabbit.com/blog/2012/03/17/new-blog">
+  <link rel="canonical" href="http://blog.sprabbit.com/blog/2014/09/03/onclick-ios-safari">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">超科学兔耳中队的博客</h1>
+      <h1 class="entry-title">IOS Safari 浏览器的点击事件问题</h1>
     
     
       <p class="meta">
@@ -94,16 +94,31 @@
   
 
 
-<time datetime="2012-03-17T13:22:00+08:00" pubdate data-updated="true">12年03月17日</time>
+<time datetime="2014-09-03T16:11:00+08:00" pubdate data-updated="true">14年09月03日</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>架设了N久，终于把博客架设上去了。作为SPRabbit的博客，除了有一般作品的发布，还有少部份将会是SPRabbit的技术文章。这将会和很多其他社团的网站架构有所区别，因为SPRabbit除了作为同人社团进行同人创作，还作为一个技术团队，进行技术上的研究与开发。</p>
+<div class="entry-content"><p>今天碰到一个问题，在IOS的Safari浏览器中，一个网页的div元素在绑定了click事件后点击时有变暗的闪烁。在其他浏览器均无出现此现象，即使是桌面的Safari也没有。</p>
 
-<p>关于本Blog的更多信息，可以在“<a href="/about">关于&#8230;</a>”中获取。</p>
+<p>我于是清空了click事件中的所有代码，仍然会出现此状况，但是直接去掉时间绑定则不会变暗，于是确定是因为绑定click事件引起的变暗。</p>
+
+<p>后面我又在事件处理中写了个alert()，发现在提示框弹出的时候，那个div已经变暗了，也就是说在处理事件之前，浏览器已经给div附加了变暗效果。那基本上可以确定是IOS Safari的默认样式效果了。</p>
+
+<p>于是StackOverflow了一下问题迎刃而解：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">html</span> <span class="p">{</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">tap</span><span class="o">-</span><span class="n">highlight</span><span class="o">-</span><span class="k">color</span><span class="o">:</span><span class="k">transparent</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>参考：<a href="http://stackoverflow.com/questions/2355154/iphone-darkens-div-on-click">http://stackoverflow.com/questions/2355154/iphone-darkens-div-on-click</a></p>
 </div>
 
   <footer>
@@ -125,12 +140,12 @@
   
 
 
-<time datetime="2012-03-17T13:22:00+08:00" pubdate data-updated="true">12年03月17日</time>
+<time datetime="2014-09-03T16:11:00+08:00" pubdate data-updated="true">14年09月03日</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/talk/'>杂谈</a>, <a class='category' href='/blog/categories/circle/'>社团</a>
+    <a class='category' href='/blog/categories/ios/'>IOS</a>, <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/technique/'>技术</a>
   
 </span>
 
@@ -163,10 +178,8 @@ var jiathis_config = {data_track_clickback:'true'};
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/07/26/predestined/" title="Previous Post: 小圆同人四格漫画《Predestined》">&laquo; 小圆同人四格漫画《Predestined》</a>
+        <a class="basic-alignment left" href="/blog/2013/08/22/javascript-memo-1/" title="Previous Post: Javascript备忘">&laquo; Javascript备忘</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/03/23/octopress/" title="Next Post: 关于在64位 Windows 7 中部署中文化的Octopress">关于在64位 Windows 7 中部署中文化的Octopress &raquo;</a>
       
     </p>
 	

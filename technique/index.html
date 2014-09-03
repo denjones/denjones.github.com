@@ -9,9 +9,7 @@
   <meta name="author" content="火雾宗师">
 
   
-  <meta name="description" content="这个系列只是一个备忘录，主要是讲述平时编程遇到的一些奇怪的问题。
-本来标题叫做Javascript奇技淫巧系列，但是现在我又被掉往服务端开发了，所以这个系列可能会不再更新，于是改回Javascript备忘。
-其实这种奇怪的问题一般都出在IE上，所以重点就放在IE上了。 这次的主题是图片拖拽的问题， &hellip;">
+  <meta name="description" content="今天碰到一个问题，在IOS的Safari浏览器中，一个网页的div元素在绑定了click事件后点击时有变暗的闪烁。在其他浏览器均无出现此现象，即使是桌面的Safari也没有。 我于是清空了click事件中的所有代码，仍然会出现此状况，但是直接去掉时间绑定则不会变暗， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +78,58 @@
   
   <div class="blog-index">
   
+  
+  
+    <article>
+     
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/03/onclick-ios-safari/">IOS Safari 浏览器的点击事件问题</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-03T16:11:00+08:00" pubdate data-updated="true">14年09月03日</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天碰到一个问题，在IOS的Safari浏览器中，一个网页的div元素在绑定了click事件后点击时有变暗的闪烁。在其他浏览器均无出现此现象，即使是桌面的Safari也没有。</p>
+
+<p>我于是清空了click事件中的所有代码，仍然会出现此状况，但是直接去掉时间绑定则不会变暗，于是确定是因为绑定click事件引起的变暗。</p>
+
+<p>后面我又在事件处理中写了个alert()，发现在提示框弹出的时候，那个div已经变暗了，也就是说在处理事件之前，浏览器已经给div附加了变暗效果。那基本上可以确定是IOS Safari的默认样式效果了。</p>
+
+<p>于是StackOverflow了一下问题迎刃而解：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">html</span> <span class="p">{</span>
+</span><span class='line'>  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">tap</span><span class="o">-</span><span class="n">highlight</span><span class="o">-</span><span class="k">color</span><span class="o">:</span><span class="k">transparent</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>参考：<a href="http://stackoverflow.com/questions/2355154/iphone-darkens-div-on-click">http://stackoverflow.com/questions/2355154/iphone-darkens-div-on-click</a></p>
+</div>
+  
+  
+
+    </article>
   
   
     <article>
@@ -484,6 +534,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/03/onclick-ios-safari/">IOS Safari 浏览器的点击事件问题</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/22/javascript-memo-1/">Javascript备忘</a>
       </li>
     
@@ -497,10 +551,6 @@
     
       <li class="post">
         <a href="/blog/2013/08/16/introduction-dustjs-1/">Dust.js语法简介（一）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/08/15/introduction-client-template/">前端模板的选择</a>
       </li>
     
   </ul>
@@ -541,7 +591,7 @@
   </div>
   <footer role="contentinfo"><div id="google_translate_element"></div>
 <p>
-  Copyright &copy; 2013 - 火雾宗师 -
+  Copyright &copy; 2014 - 火雾宗师 -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
   
   <script>

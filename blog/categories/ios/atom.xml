@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[文章分类: IOS | 博客 SPRABBIT 超科学兔耳中队]]></title>
+  <link href="http://blog.sprabbit.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://blog.sprabbit.com/"/>
+  <updated>2014-09-03T16:30:19+08:00</updated>
+  <id>http://blog.sprabbit.com/</id>
+  <author>
+    <name><![CDATA[火雾宗师]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[IOS Safari 浏览器的点击事件问题]]></title>
+    <link href="http://blog.sprabbit.com/blog/2014/09/03/onclick-ios-safari/"/>
+    <updated>2014-09-03T16:11:00+08:00</updated>
+    <id>http://blog.sprabbit.com/blog/2014/09/03/onclick-ios-safari</id>
+    <content type="html"><![CDATA[<p>今天碰到一个问题，在IOS的Safari浏览器中，一个网页的div元素在绑定了click事件后点击时有变暗的闪烁。在其他浏览器均无出现此现象，即使是桌面的Safari也没有。</p>
+
+<p>我于是清空了click事件中的所有代码，仍然会出现此状况，但是直接去掉时间绑定则不会变暗，于是确定是因为绑定click事件引起的变暗。</p>
+
+<p>后面我又在事件处理中写了个alert()，发现在提示框弹出的时候，那个div已经变暗了，也就是说在处理事件之前，浏览器已经给div附加了变暗效果。那基本上可以确定是IOS Safari的默认样式效果了。</p>
+
+<p>于是StackOverflow了一下问题迎刃而解：</p>
+
+<p><code>css
+html {
+  -webkit-tap-highlight-color:transparent;
+}
+</code></p>
+
+<p>参考：<a href="http://stackoverflow.com/questions/2355154/iphone-darkens-div-on-click">http://stackoverflow.com/questions/2355154/iphone-darkens-div-on-click</a></p>
+]]></content>
+  </entry>
+  
+</feed>
